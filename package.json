@@ -6,7 +6,14 @@
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "postinstall": "husky",
+    "lint": "biome check .",
+    "format": "biome format . --write",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format:check": "biome format . --write",
+    "lint:fix": "biome check --write .",
+    "validate": "npm run typecheck && npm run lint && npm run format:check"
   },
   "dependencies": {
     "@react-router/node": "^7.1.5",
@@ -17,15 +24,23 @@
     "react-router": "^7.1.5"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@commitlint/config-conventional": "^19.7.1",
     "@react-router/dev": "^7.1.5",
-    "@tailwindcss/vite": "^4.0.0",
+    "@tailwindcss/vite": "^4.0.4",
     "@types/node": "^20",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
+    "commitlint": "^19.7.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "react-router-devtools": "^1.1.0",
-    "tailwindcss": "^4.0.0",
+    "tailwindcss": "^4.0.4",
     "typescript": "^5.7.2",
     "vite": "^5.4.11",
     "vite-tsconfig-paths": "^5.1.4"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": ["biome check --write", "biome format --write"]
   }
 }

@@ -1,3 +1,81 @@
+# My React Router App
+
+A modern React application built with React Router and TypeScript.
+
+## Features
+
+- Built with React Router v7
+- TypeScript support
+- Biome for linting and formatting
+- Husky for Git hooks
+- Conventional commits with commitlint
+- TailwindCSS for styling
+
+## Prerequisites
+
+- Node.js (v16 or higher)
+- npm or bun
+
+## Getting Started
+
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd my-react-router-app
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+bun install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+# or
+bun run dev
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run typecheck` - Run TypeScript type checking
+- `npm run lint` - Run Biome linting
+- `npm run format` - Format code with Biome
+- `npm run validate` - Run all checks (typecheck, lint, format)
+
+## Git Commit Guidelines
+
+This project follows conventional commits specification. Commit messages should be structured as follows:
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+Types:
+- feat: New feature
+- fix: Bug fix
+- docs: Documentation changes
+- style: Code style changes
+- refactor: Code refactoring
+- perf: Performance improvements
+- test: Adding tests
+- chore: Maintenance tasks
+- ci: CI/CD changes
+- revert: Reverting changes
+
+## License
+
+[MIT](LICENSE)
+
 # Welcome to React Router!
 
 A modern, production-ready template for building full-stack React applications using React Router.

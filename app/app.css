@@ -3,6 +3,62 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+/* Colors */
+  --color-backgroundColor: #0a0a0c;
+  --color-surface: #FFFFFF;
+  /* White - Primary surface color */
+  --color-base: #000000;
+  /* Black - Primary text color */
+  --color-muted: #ABABAB;
+  /* Light gray - Secondary/muted text */
+  --color-subtle: #3D3D3D;
+  /* Dark gray - Subtle backgrounds/borders */
+
+  /* CTA Title */
+  --text-cta: 7.188rem;
+  /* 115px / 1.2em */
+
+  /* Headings */
+  --text-heading-2: 6rem;
+  /* 96px */
+  --text-heading-3: 4.5rem;
+  /* 72px */
+  --text-heading-4: 4rem;
+  /* 64px */
+  --text-heading-5: 2.75rem;
+  /* 44px */
+  --text-heading-6: 2.25rem;
+  /* 36px */
+
+  /* Paragraphs */
+  --text-p-xl: 2rem;
+  /* 32px / 1.5em */
+  --text-p-lg: 1.75rem;
+  /* 28px / 1.5em */
+  --text-p-md: 1.375rem;
+  /* 22px / 1.5em */
+  --text-p-base: 1.375rem;
+  /* 22px / 1.5em */
+  --text-p-sm: 1.25rem;
+  /* 20px / 1.5em */
+  --text-p-xs: 1.125rem;
+  /* 18px / 1.5em */
+
+  /* Service & Buttons */
+  --text-service: 1rem;
+  /* 16px / 1.2em */
+  --text-button-md: 0.938rem;
+  /* 15px / 1.5em */
+  --text-button-semi: 0.938rem;
+  /* 15px / 1.5em */
+  --text-link: 1rem;
+  /* 16px / 1.3em */
+
+  /* Project Title */
+  --text-project: 1.75rem;
+  /* 28px */
+  --text-small: 1.125rem;
+  /* 18px */
 }
 
 html,
@@ -13,3 +69,4 @@ body {
     color-scheme: dark;
   }
 }
+
