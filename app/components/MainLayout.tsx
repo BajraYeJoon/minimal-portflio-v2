@@ -3,6 +3,7 @@ import { Navbar } from './Navbar';
 
 export function MainLayout({ children }: { children: React.ReactNode }) {
   return (
+    // testsing for verion
     <div className="container mx-auto">
       <Navbar />
       <main className="">{children}</main>
