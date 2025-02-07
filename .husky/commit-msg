@@ -1,1 +1,7 @@
-npx --no-install commitlint --edit "$1"
+#!/bin/sh
+commit_msg=$(cat "$1")
+emoji_msg=$(echo "$commit_msg" | npx --no -- commitlint --quiet)
+if [ $? -eq 0 ] && [ ! -z "$emoji_msg" ]; then
+  echo "$emoji_msg" > "$1"
+fi
+npx --no -- commitlint --edit "$1"

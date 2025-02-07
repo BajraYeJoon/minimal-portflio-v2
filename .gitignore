@@ -40,3 +40,6 @@ yarn-error.log*
 # React Router
 /.react-router/
 /build/
+
+# Million Lint
+.million

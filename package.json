@@ -13,9 +13,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format:check": "biome format . --write",
     "lint:fix": "biome check --write .",
-    "validate": "npm run typecheck && npm run lint && npm run format:check"
+    "validate": "npm run typecheck && npm run lint && npm run format:check",
+    "release": "semantic-release"
   },
   "dependencies": {
+    "@million/lint": "^1.0.14",
     "@react-router/node": "^7.1.5",
     "@react-router/serve": "^7.1.5",
     "isbot": "^5.1.17",
@@ -27,6 +29,7 @@
     "@biomejs/biome": "1.9.4",
     "@commitlint/config-conventional": "^19.7.1",
     "@react-router/dev": "^7.1.5",
+    "@semantic-release/github": "^11.0.1",
     "@tailwindcss/vite": "^4.0.4",
     "@types/node": "^20",
     "@types/react": "^19.0.1",
@@ -42,5 +45,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": ["biome check --write", "biome format --write"]
+  },
+  "release": {
+    "branches": ["master"]
   }
 }
