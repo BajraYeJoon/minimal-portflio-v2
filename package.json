@@ -1,6 +1,7 @@
 {
-  "name": "my-react-router-app",
+  "name": "binaya-bajracharya-enhanced-portfolio-website",
   "private": true,
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "build": "react-router build",
