@@ -1,8 +1,11 @@
+import { generateMetadata } from '~/utils/generateMetadata';
+
 export function meta() {
-  return [
-    { title: 'New React Router App' },
-    { name: 'description', content: 'Welcome to React Router!' },
-  ];
+  return generateMetadata({
+    title: 'Binaya Bajracharya Enhanced portfolio website',
+    description: 'Binaya Bajracharya Enhanced portfolio website',
+    path: '/',
+  });
 }
 
 export default function Home() {

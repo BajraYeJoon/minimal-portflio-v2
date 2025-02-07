@@ -8,7 +8,7 @@ const SITE_NAME = 'Binaya Bajracharya';
 export const BASE_URL = 'https://binayabajracharya.com.np';
 
 export function generateMetadata({ title, description, path }: MetadataProps) {
-  const fullTitle = `${title} | ${SITE_NAME}`;
+  const fullTitle = `${title} `;
   const url = path ? `${BASE_URL}${path}` : BASE_URL;
 
   return [
