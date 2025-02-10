@@ -4,8 +4,8 @@ interface MetadataProps {
   path?: string;
 }
 
-const SITE_NAME = 'Binaya Bajracharya';
-export const BASE_URL = 'https://binayabajracharya.com.np';
+const SITE_NAME = process.env.SITE_NAME;
+export const BASE_URL = process.env.BASE_URL;
 
 export function generateMetadata({ title, description, path }: MetadataProps) {
   const fullTitle = `${title} `;
@@ -30,7 +30,7 @@ export function generateMetadata({ title, description, path }: MetadataProps) {
       'script:ld+json': {
         '@context': 'https://schema.org',
         '@type': 'Person',
-        name: 'Binaya Bajracharya',
+        name: SITE_NAME,
         url: url,
         image: `${BASE_URL}/logooo.png`,
         description: description,

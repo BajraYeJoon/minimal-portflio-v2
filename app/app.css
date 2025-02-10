@@ -1,7 +1,12 @@
 @import "tailwindcss";
 
+@layer components {
+  .animated-transition {
+    @apply transition-transform duration-700 ease-in-out;
+  }
+}
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 /* Colors */
   --color-backgroundColor: #0a0a0c;
@@ -35,14 +40,12 @@
   /* 32px / 1.5em */
   --text-p-lg: 1.75rem;
   /* 28px / 1.5em */
+  --text-p-base: 1.5rem;
+    /* 24px / 1.5em */
   --text-p-md: 1.375rem;
-  /* 22px / 1.5em */
-  --text-p-base: 1.375rem;
   /* 22px / 1.5em */
   --text-p-sm: 1.25rem;
   /* 20px / 1.5em */
-  --text-p-xs: 1.125rem;
-  /* 18px / 1.5em */
 
   /* Service & Buttons */
   --text-service: 1rem;
@@ -52,7 +55,7 @@
   --text-button-semi: 0.938rem;
   /* 15px / 1.5em */
   --text-link: 1rem;
-  /* 16px / 1.3em */
+  /* 16px / 1.5em */
 
   /* Project Title */
   --text-project: 1.75rem;
@@ -63,7 +66,7 @@
 
 html,
 body {
-  @apply bg-backgroundColor text-surface;
+  @apply bg-backgroundColor text-surface font-medium;
 
 
 }

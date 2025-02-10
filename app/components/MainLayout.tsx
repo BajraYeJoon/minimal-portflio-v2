@@ -3,7 +3,7 @@ import { Navbar } from './Navbar';
 
 export function MainLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto px-16 flex flex-col">
+    <div className="mx-auto px-4 md:px-16 flex flex-col">
       <Navbar />
       <main className="">{children}</main>
       <Footer />
