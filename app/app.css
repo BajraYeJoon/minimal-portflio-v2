@@ -1,10 +1,6 @@
 @import "tailwindcss";
 
-@layer components {
-  .animated-transition {
-    @apply transition-transform duration-700 ease-in-out;
-  }
-}
+
 @theme {
   --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -19,8 +15,8 @@
   --color-subtle: #3D3D3D;
   /* Dark gray - Subtle backgrounds/borders */
 
-  /* CTA Title */
-  --text-cta: 7.188rem;
+  /* Main Heading Title */
+    --text-main-heading: 7.188rem;
   /* 115px / 1.2em */
 
   /* Headings */
@@ -69,4 +65,10 @@ body {
   @apply bg-backgroundColor text-surface font-medium;
 
 
+}
+
+@layer components {
+  .animated-transition {
+    @apply transition-transform duration-700 ease-in-out;
+  }
 }

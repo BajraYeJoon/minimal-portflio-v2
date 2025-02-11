@@ -1,3 +1,4 @@
+import { Button } from '~/components/common/Button';
 import { generateMetadata } from '~/utils/generateMetadata';
 
 export function meta() {
@@ -9,5 +10,10 @@ export function meta() {
 }
 
 export default function Home() {
-  return <main className="text-main-heading">hi there</main>;
+  return (
+    <main>
+      <Button variant="link">Get in Touch </Button>
+      <Button>Get in Touch </Button>
+    </main>
+  );
 }

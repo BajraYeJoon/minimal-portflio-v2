@@ -4,8 +4,8 @@ interface MetadataProps {
   path?: string;
 }
 
-const SITE_NAME = process.env.SITE_NAME;
-export const BASE_URL = process.env.BASE_URL;
+const SITE_NAME = import.meta.env.VITE_SITE_NAME;
+export const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export function generateMetadata({ title, description, path }: MetadataProps) {
   const fullTitle = `${title} `;
