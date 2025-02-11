@@ -56,7 +56,11 @@ export const CommonTitle: React.FC<CommonTitleProps> = ({
   );
 
   return (
-    <Component id={id} className={baseStyles}>
+    <Component
+      id={id}
+      aria-level={Component.match(/h(\d)/)?.[1]}
+      className={baseStyles}
+    >
       {children}
     </Component>
   );
