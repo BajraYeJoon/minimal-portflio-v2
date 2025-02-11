@@ -1,8 +1,10 @@
-import type { NavItem } from '~/types/types';
+import type { Navigation } from '~/types/types';
 
-export const menuItems: NavItem[] = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Services', path: '/services' },
-  { name: 'Contact', path: '/contact' },
-];
+export const navigation: Navigation = {
+  main: [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+  ],
+  features: [{ name: 'Services', path: '/services' }],
+  support: [{ name: 'Contact', path: '/contact' }],
+} as const;
