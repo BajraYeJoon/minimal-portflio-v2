@@ -2,7 +2,7 @@
 
 
 @theme {
-  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif,
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 /* Colors */
   --color-backgroundColor: #0a0a0c;
@@ -16,7 +16,11 @@
   /* Dark gray - Subtle backgrounds/borders */
 
   /* Main Heading Title */
-    --text-main-heading: 7.188rem;
+  /* 128px */
+    --text-main-heading: 8rem;
+  
+    /* CTA */
+    --text-cta: 7.188rem;
   /* 115px / 1.2em */
 
   /* Headings */

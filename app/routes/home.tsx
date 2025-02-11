@@ -1,4 +1,5 @@
-import { Button } from '~/components/common/Button';
+import { Hero } from '~/pages/Hero';
+import AboutMeProjectReveal from '~/pages/ProjectReveal';
 import { generateMetadata } from '~/utils/generateMetadata';
 
 export function meta() {
@@ -11,9 +12,9 @@ export function meta() {
 
 export default function Home() {
   return (
-    <main>
-      <Button variant="link">Get in Touch </Button>
-      <Button>Get in Touch </Button>
-    </main>
+    <>
+      <Hero />
+      <AboutMeProjectReveal />
+    </>
   );
 }

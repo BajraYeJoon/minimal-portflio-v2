@@ -1,4 +1,3 @@
-import { Footer } from '../pages/layout/Footer';
 import { Navbar } from '../pages/layout/navbar/Navbar';
 
 export function MainLayout({ children }: { children: React.ReactNode }) {
@@ -6,7 +5,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
     <div className="mx-auto px-4 md:px-16 flex flex-col">
       <Navbar />
       <main>{children}</main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

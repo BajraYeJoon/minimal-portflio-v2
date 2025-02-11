@@ -21,8 +21,7 @@ interface CommonTitleProps {
 }
 
 const variantStyles: Record<TitleVariant, string> = {
-  mainHeading:
-    'text-heading-5 md:text-heading-2 lg:text-heading-1 xl:text-main-heading',
+  mainHeading: 'text-main-heading',
   'par-extra-large': 'text-p-base md:text-p-lg lg:text-p-xl',
   'par-large': 'text-p-sm md:text-p-base lg:text-p-lg',
   'par-medium': 'text-p-sm md:text-p-md lg:text-p-base',
@@ -49,7 +48,7 @@ export const CommonTitle: React.FC<CommonTitleProps> = ({
   const Component = as ?? (variant === 'mainHeading' ? 'h2' : 'p');
 
   const baseStyles = cn(
-    'tracking-tight text-surface',
+    'tracking-normal',
     variantStyles[variant],
     alignmentStyles[align],
     className,
@@ -58,7 +57,7 @@ export const CommonTitle: React.FC<CommonTitleProps> = ({
   return (
     <Component
       id={id}
-      aria-level={Component.match(/h(\d)/)?.[1]}
+      aria-level={Number(Component.match(/h(\d)/)?.[1])}
       className={baseStyles}
     >
       {children}
