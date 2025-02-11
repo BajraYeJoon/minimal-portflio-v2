@@ -25,14 +25,14 @@ const getButtonClasses = ({
   className?: string;
 }) => {
   const baseClasses =
-    'group inline-flex items-center justify-center rounded-full transition-colors duration-700 relative overflow-hidden disabled:pointer-events-none disabled:opacity-50 text-button-semi md:text-button-md';
+    'group inline-flex items-center justify-center rounded-full transition-colors duration-300 motion-safe:duration-700 relative overflow-hidden disabled:pointer-events-none disabled:opacity-50 text-button-semi md:text-button-md';
 
   const variantClasses = {
     default: cn(
       'border border-surface bg-transparent hover:text-backgroundColor',
       'content-none before:absolute before:scale-0 hover:before:scale-100 before:bg-white',
       'before:size-[200px] before:rounded-full',
-      'before:transition-transform before:duration-800 before:origin-bottom before:ease-in-out',
+      'before:transition-transform before:duration-300 motion-safe:before:duration-800 before:origin-bottom before:ease-in-out',
       '',
     ),
     link: '',
