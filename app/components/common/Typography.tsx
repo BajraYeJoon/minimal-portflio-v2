@@ -8,7 +8,9 @@ interface AnimatedTypographyProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
   component?: TypographyElement;
   dividerDirection?: 'ltr' | 'rtl' | 'center';
-  to?: string; // For React Router links
+  showDivider?: boolean;
+  to?: string;
+  animated?: boolean;
 }
 
 const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
@@ -18,6 +20,8 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
       className = '',
       children,
       dividerDirection = 'ltr',
+      showDivider = true,
+      animated = true,
       to,
       ...rest
     },
@@ -30,8 +34,9 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
           {
             ref,
             className: cn(
-              'inline-block translate-y-0 scale-100  group-hover:scale-75 animated-transition',
-              'group-hover:-translate-y-full',
+              'inline-block translate-y-0 scale-100',
+              animated && 'group-hover:scale-95 group-hover:-translate-y-full',
+              'animated-transition',
             ),
             ...rest,
           },
@@ -41,8 +46,10 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
           component,
           {
             className: cn(
-              'inline-block absolute left-0 top-full  w-full',
-              'animated-transition group-hover:-translate-y-full  scale-75 group-hover:scale-100',
+              'inline-block absolute left-0 top-full w-full',
+              animated &&
+                'group-hover:-translate-y-full scale-95 group-hover:scale-100',
+              'animated-transition',
             ),
             ...rest,
           },
@@ -54,17 +61,19 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
     const wrappedContent = (
       <>
         {content}
-        <div className="relative h-[2px] w-full mt-1">
-          <div
-            className={cn(
-              'absolute inset-0 bg-current  transform scale-x-0',
-              'animated-transition group-hover:scale-x-100',
-              dividerDirection === 'rtl' && 'origin-right',
-              dividerDirection === 'ltr' && 'origin-left',
-              dividerDirection === 'center' && 'origin-center',
-            )}
-          />
-        </div>
+        {showDivider && (
+          <div className="relative h-[2px] w-full mt-1">
+            <div
+              className={cn(
+                'absolute inset-0 bg-current transform scale-x-0',
+                'animated-transition group-hover:scale-x-100',
+                dividerDirection === 'rtl' && 'origin-right',
+                dividerDirection === 'ltr' && 'origin-left',
+                dividerDirection === 'center' && 'origin-center',
+              )}
+            />
+          </div>
+        )}
       </>
     );
 
