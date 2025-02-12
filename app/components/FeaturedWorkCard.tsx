@@ -1,7 +1,7 @@
 import type { FeaturedWork } from '~/types/types';
 import { cn } from '~/utils/cn';
-import { Button } from './Button';
-import AnimatedTypography from './Typography';
+import { Button } from './common/Button';
+import AnimatedTypography from './common/Typography';
 
 interface FeaturedWorkCardProps {
   work: FeaturedWork;

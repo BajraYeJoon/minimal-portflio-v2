@@ -18,3 +18,13 @@ export interface FeaturedWork {
   link: string;
   size?: WorkSize;
 }
+
+export interface ServiceItem {
+  name: string;
+  items: string[];
+}
+
+export interface ServiceCategory {
+  title: string;
+  services: string[];
+}

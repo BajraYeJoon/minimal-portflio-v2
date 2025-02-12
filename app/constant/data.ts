@@ -1,4 +1,4 @@
-import type { FeaturedWork, Navigation } from '~/types/types';
+import type { FeaturedWork, Navigation, ServiceCategory } from '~/types/types';
 
 export const navigation: Navigation[] = [
   { name: 'Home', path: '/' },
@@ -6,6 +6,53 @@ export const navigation: Navigation[] = [
   { name: 'Services', path: '/services' },
   { name: 'Contact', path: '/contact' },
 ] as const;
+
+export const serviceCategories: ServiceCategory[] = [
+  {
+    title: 'UI/UX DESIGN',
+    services: [
+      'App Design',
+      'Website Design',
+      'Landing Page Design',
+      'Design Systems',
+      'Wireframing',
+      'Prototyping',
+    ],
+  },
+  {
+    title: 'WEB DEVELOPMENT',
+    services: [
+      'Framer Development',
+      'Webflow Development',
+      'Wordpress Development',
+      'Speed Optimization',
+      'SEO Optimization',
+      'Website Maintenance',
+    ],
+  },
+  {
+    title: 'BRAND IDENTITY',
+    services: [
+      'Logo Design',
+      'Brand Guidlines',
+      'Label Design',
+      'Packaging Design',
+      'Visual Identity',
+      'Brand Strategy',
+    ],
+  },
+  {
+    title: 'DIGITAL DESIGN',
+    services: [
+      'Illustrations',
+      'Animations',
+      'Business Cards',
+      'Flyers',
+      'Banner Design',
+      'Social Media',
+    ],
+  },
+];
 
 export const featuredWorks: FeaturedWork[] = [
   {

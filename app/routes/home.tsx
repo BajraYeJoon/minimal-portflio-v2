@@ -1,6 +1,8 @@
 import FeaturedWorks from '~/pages/FeaturedWorks';
 import { Hero } from '~/pages/Hero';
 import AboutMeProjectReveal from '~/pages/ProjectReveal';
+import Services from '~/pages/Services';
+import Testimonials from '~/pages/Testimonials';
 import { generateMetadata } from '~/utils/generateMetadata';
 
 export function meta() {
@@ -17,6 +19,8 @@ export default function Home() {
       <Hero />
       <AboutMeProjectReveal />
       <FeaturedWorks />
+      <Services />
+      <Testimonials />
     </>
   );
 }

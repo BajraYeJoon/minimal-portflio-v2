@@ -1,4 +1,4 @@
-import FeaturedWorkCard from '~/components/common/FeaturedWorkCard';
+import FeaturedWorkCard from '~/components/FeaturedWorkCard';
 import SectionHeader from '~/components/common/SectionHeader';
 import { featuredWorks } from '~/constant/data';
 
