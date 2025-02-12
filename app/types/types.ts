@@ -1,10 +1,30 @@
-export interface NavItem {
+export interface Navigation {
   name: string;
   path: string;
 }
 
-export interface Navigation {
-  main: NavItem[];
-  features: NavItem[];
-  support: NavItem[];
+export type Service =
+  | 'UI/UX Design'
+  | 'Web Development'
+  | 'Digital Design'
+  | 'Brand Identity';
+
+export type WorkSize = 'normal' | 'large';
+
+export interface FeaturedWork {
+  title: string;
+  image: string;
+  services: Service[];
+  link: string;
+  size?: WorkSize;
+}
+
+export interface ServiceItem {
+  name: string;
+  items: string[];
+}
+
+export interface ServiceCategory {
+  title: string;
+  services: string[];
 }

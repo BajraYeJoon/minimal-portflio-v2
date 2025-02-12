@@ -10,7 +10,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="py-4 ">
+    <nav className="py-4">
       <DesktopNav />
       <MobileNav isOpen={isMenuOpen} onToggle={toggleMenu} />
     </nav>

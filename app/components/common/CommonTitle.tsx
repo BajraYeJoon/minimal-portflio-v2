@@ -7,7 +7,8 @@ type TitleVariant =
   | 'par-medium'
   | 'par-base'
   | 'par-small'
-  | 'service-heading';
+  | 'service-heading'
+  | 'par-extra-small';
 
 type TitleAlignment = 'left' | 'center' | 'right';
 
@@ -21,13 +22,13 @@ interface CommonTitleProps {
 }
 
 const variantStyles: Record<TitleVariant, string> = {
-  mainHeading:
-    'text-heading-5 md:text-heading-2 lg:text-heading-1 xl:text-main-heading',
+  mainHeading: 'text-main-heading',
   'par-extra-large': 'text-p-base md:text-p-lg lg:text-p-xl',
   'par-large': 'text-p-sm md:text-p-base lg:text-p-lg',
-  'par-medium': 'text-p-sm md:text-p-md lg:text-p-base',
-  'par-base': 'text-p-sm md:text-p-base',
-  'par-small': 'text-p-sm',
+  'par-medium': 'text-p-sm md:text-p-md ',
+  'par-base': 'text-p-md md:text-p-base',
+  'par-small': 'sm:text-p-sm',
+  'par-extra-small': 'text-link',
 
   'service-heading': 'text-heading-6 md:text-heading-5 lg:text-heading-4',
 };
@@ -49,7 +50,7 @@ export const CommonTitle: React.FC<CommonTitleProps> = ({
   const Component = as ?? (variant === 'mainHeading' ? 'h2' : 'p');
 
   const baseStyles = cn(
-    'tracking-tight text-surface',
+    'tracking-normal h-fit',
     variantStyles[variant],
     alignmentStyles[align],
     className,
@@ -58,7 +59,7 @@ export const CommonTitle: React.FC<CommonTitleProps> = ({
   return (
     <Component
       id={id}
-      aria-level={Component.match(/h(\d)/)?.[1]}
+      aria-level={Number(Component.match(/h(\d)/)?.[1])}
       className={baseStyles}
     >
       {children}

@@ -28,7 +28,7 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
     ref,
   ) => {
     const content = (
-      <div className="relative overflow-hidden tracking-wider">
+      <div className="relative overflow-hidden tracking-wide">
         {createElement(
           component,
           {

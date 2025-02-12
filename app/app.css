@@ -2,7 +2,7 @@
 
 
 @theme {
-  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif,
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 /* Colors */
   --color-backgroundColor: #0a0a0c;
@@ -16,7 +16,11 @@
   /* Dark gray - Subtle backgrounds/borders */
 
   /* Main Heading Title */
-    --text-main-heading: 7.188rem;
+  /* 128px */
+    --text-main-heading: 8rem;
+  
+    /* CTA */
+    --text-cta: 7.188rem;
   /* 115px / 1.2em */
 
   /* Headings */
@@ -46,8 +50,8 @@
   /* Service & Buttons */
   --text-service: 1rem;
   /* 16px / 1.2em */
-  --text-button-md: 0.938rem;
-  /* 15px / 1.5em */
+  --text-button-md: 1.125rem;
+    /* 18px / 1.5em */
   --text-button-semi: 0.938rem;
   /* 15px / 1.5em */
   --text-link: 1rem;
@@ -60,9 +64,9 @@
   /* 18px */
 }
 
-html,
+
 body {
-  @apply bg-backgroundColor text-surface font-medium;
+  @apply bg-backgroundColor text-surface font-medium mx-auto px-4 md:px-16 flex flex-col;
 
 
 }
@@ -71,4 +75,7 @@ body {
   .animated-transition {
     @apply transition-transform duration-700 ease-in-out;
   }
+.animated-transition-colors {
+  @apply transition-colors duration-700 ease-in-out;
+}
 }

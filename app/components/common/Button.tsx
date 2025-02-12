@@ -1,5 +1,6 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { AnchorHTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
+import { Link } from 'react-router';
 import { cn } from '~/lib/utils';
 import { ButtonArrow } from './ButtonArrow';
 import AnimatedTypography from './Typography';
@@ -7,10 +8,11 @@ import AnimatedTypography from './Typography';
 type ButtonVariant = 'default' | 'link';
 type ButtonSize = 'default' | 'link';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   showArrow?: boolean;
+  href?: string;
   className?: string;
   children?: ReactNode;
 }
@@ -25,13 +27,13 @@ const getButtonClasses = ({
   className?: string;
 }) => {
   const baseClasses =
-    'group inline-flex items-center justify-center rounded-full transition-colors duration-300 motion-safe:duration-700 relative overflow-hidden disabled:pointer-events-none disabled:opacity-50 text-button-semi md:text-button-md';
+    'group inline-flex items-center justify-center rounded-full transition-colors leading-none duration-300 motion-safe:duration-700 relative overflow-hidden disabled:pointer-events-none disabled:opacity-50 text-button-semi md:text-button-md';
 
   const variantClasses = {
     default: cn(
       'border border-surface bg-transparent hover:text-backgroundColor',
       'content-none before:absolute before:scale-0 hover:before:scale-100 before:bg-white',
-      'before:size-[200px] before:rounded-full',
+      'before:size-[240px] before:rounded-full',
       'before:transition-transform before:duration-300 motion-safe:before:duration-800 before:origin-bottom before:ease-in-out',
       '',
     ),
@@ -47,25 +49,23 @@ const getButtonClasses = ({
 };
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      className = 'flex gap-3 relative items-center justify-center',
-      variant = 'default',
-      size = 'default',
-      showArrow = true,
-      children,
-      ...props
-    },
-    ref,
-  ) => {
+  ({
+    className = 'flex gap-3 w-fit relative items-center justify-center',
+    variant = 'default',
+    size = 'default',
+    showArrow = true,
+    children,
+    href,
+    ...props
+  }) => {
     return (
-      <button
+      <Link
+        to={href ?? ''}
         className={getButtonClasses({
           variant,
           size,
           className,
         })}
-        ref={ref}
         {...props}
       >
         <AnimatedTypography
@@ -76,7 +76,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           {children}
         </AnimatedTypography>
         {showArrow && <ButtonArrow variant={variant} />}
-      </button>
+      </Link>
     );
   },
 );
