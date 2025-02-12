@@ -22,7 +22,7 @@ interface CommonTitleProps {
 }
 
 const variantStyles: Record<TitleVariant, string> = {
-  mainHeading: 'text-main-heading',
+  mainHeading: 'text-heading-2 2xl:text-main-heading',
   'par-extra-large': 'text-p-base md:text-p-lg lg:text-p-xl',
   'par-large': 'text-p-sm md:text-p-base lg:text-p-lg',
   'par-medium': 'text-p-sm md:text-p-md ',

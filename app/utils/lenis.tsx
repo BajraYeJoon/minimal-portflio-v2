@@ -23,7 +23,7 @@ export default function LenisProvider({
     <ReactLenis
       root
       options={{
-        duration: 1.5,
+        duration: 1.1,
         easing: (t) => 1 - (1 - t) ** 3,
         smoothWheel: true,
         wheelMultiplier: 0.8,
