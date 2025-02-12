@@ -38,6 +38,14 @@
       },
       "correctness": {
         "noUnusedImports": "error"
+      },
+      "a11y": {
+        "useKeyWithClickEvents": "warn",
+        "useValidAnchor": "warn"
+      },
+      "style": {
+        "noNonNullAssertion": "off",
+        "noUnusedTemplateLiteral": "off"
       }
     }
   },
