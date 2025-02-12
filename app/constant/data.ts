@@ -1,3 +1,4 @@
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import type { FeaturedWork, Navigation, ServiceCategory } from '~/types/types';
 
 export const navigation: Navigation[] = [
@@ -98,4 +99,11 @@ export const featuredWorks: FeaturedWork[] = [
     link: './works/hydra-lips',
     size: 'normal',
   },
+];
+
+export const socialLinks = [
+  { name: 'Github', icon: FaGithub, link: 'https://github.com/' },
+  { name: 'Facebook', icon: FaFacebook, link: 'https://facebook.com/' },
+  { name: 'Instagram', icon: FaInstagram, link: 'https://instagram.com/' },
+  { name: 'LinkedIn', icon: FaLinkedin, link: 'https://linkedin.com/' },
 ];
