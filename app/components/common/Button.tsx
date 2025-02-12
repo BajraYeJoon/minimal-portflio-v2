@@ -27,7 +27,7 @@ const getButtonClasses = ({
   className?: string;
 }) => {
   const baseClasses =
-    'group inline-flex items-center justify-center rounded-full transition-colors duration-300 motion-safe:duration-700 relative overflow-hidden disabled:pointer-events-none disabled:opacity-50 text-button-semi md:text-button-md';
+    'group inline-flex items-center justify-center rounded-full transition-colors leading-none duration-300 motion-safe:duration-700 relative overflow-hidden disabled:pointer-events-none disabled:opacity-50 text-button-semi md:text-button-md';
 
   const variantClasses = {
     default: cn(

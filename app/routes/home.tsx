@@ -1,3 +1,4 @@
+import FeaturedWorks from '~/pages/FeaturedWorks';
 import { Hero } from '~/pages/Hero';
 import AboutMeProjectReveal from '~/pages/ProjectReveal';
 import { generateMetadata } from '~/utils/generateMetadata';
@@ -15,6 +16,7 @@ export default function Home() {
     <>
       <Hero />
       <AboutMeProjectReveal />
+      <FeaturedWorks />
     </>
   );
 }
