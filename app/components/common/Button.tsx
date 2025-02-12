@@ -48,7 +48,7 @@ const getButtonClasses = ({
   return cn(baseClasses, variantClasses, sizeClasses, className);
 };
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
   ({
     className = 'flex gap-3 w-fit relative items-center justify-center',
     variant = 'default',

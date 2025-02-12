@@ -15,6 +15,7 @@
       "coverage/**"
     ]
   },
+
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
@@ -31,7 +32,13 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "nursery": {
+        "useSortedClasses": "off"
+      },
+      "correctness": {
+        "noUnusedImports": "error"
+      }
     }
   },
   "javascript": {
@@ -46,6 +53,7 @@
       "trailingCommas": "none"
     }
   },
+
   "overrides": [
     {
       "include": ["*.json"],

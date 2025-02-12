@@ -1,3 +1,4 @@
+import CTA from '~/pages/CTA';
 import FeaturedWorks from '~/pages/FeaturedWorks';
 import { Hero } from '~/pages/Hero';
 import AboutMeProjectReveal from '~/pages/ProjectReveal';
@@ -21,6 +22,7 @@ export default function Home() {
       <FeaturedWorks />
       <Services />
       <Testimonials />
+      <CTA />
     </>
   );
 }

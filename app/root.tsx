@@ -9,6 +9,7 @@ import {
 
 import type { Route } from './+types/root';
 import './app.css';
+import Footer from './pages/layout/Footer';
 import { Navbar } from './pages/layout/navbar/Navbar';
 
 export const links: Route.LinksFunction = () => [
@@ -57,6 +58,7 @@ export default function App() {
     <>
       <Navbar />
       <Outlet />
+      <Footer />
     </>
   );
 }
