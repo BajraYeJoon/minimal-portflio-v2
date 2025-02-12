@@ -24,7 +24,7 @@ const variantStyles: Record<TitleVariant, string> = {
   mainHeading: 'text-main-heading',
   'par-extra-large': 'text-p-base md:text-p-lg lg:text-p-xl',
   'par-large': 'text-p-sm md:text-p-base lg:text-p-lg',
-  'par-medium': 'text-p-sm md:text-p-md lg:text-p-base',
+  'par-medium': 'text-p-sm md:text-p-md ',
   'par-base': 'text-p-sm md:text-p-base',
   'par-small': 'text-p-sm',
 
@@ -48,7 +48,7 @@ export const CommonTitle: React.FC<CommonTitleProps> = ({
   const Component = as ?? (variant === 'mainHeading' ? 'h2' : 'p');
 
   const baseStyles = cn(
-    'tracking-normal',
+    'tracking-normal h-fit',
     variantStyles[variant],
     alignmentStyles[align],
     className,

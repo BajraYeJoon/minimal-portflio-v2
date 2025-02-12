@@ -64,9 +64,9 @@
   /* 18px */
 }
 
-html,
+
 body {
-  @apply bg-backgroundColor text-surface font-medium;
+  @apply bg-backgroundColor text-surface font-medium mx-auto px-4 md:px-16 flex flex-col;
 
 
 }

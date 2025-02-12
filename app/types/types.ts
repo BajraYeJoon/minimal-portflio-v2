@@ -1,10 +1,4 @@
-export interface NavItem {
+export interface Navigation {
   name: string;
   path: string;
-}
-
-export interface Navigation {
-  main: NavItem[];
-  features: NavItem[];
-  support: NavItem[];
 }

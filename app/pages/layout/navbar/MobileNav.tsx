@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'motion/react';
-import { menuItems } from '~/constant/data';
+import { navigation } from '~/constant/data';
 import { cn } from '~/utils/cn';
 import { HamburgerMenu } from '../../../components/common/HamburgerMenu';
 import AnimatedTypography from '../../../components/common/Typography';
@@ -79,7 +79,7 @@ export function MobileNav({ isOpen, onToggle }: Readonly<MobileNavProps>) {
             }}
           >
             <ul className="flex flex-col items-center gap-8">
-              {menuItems.map((item, i) => (
+              {navigation.map((item, i) => (
                 <motion.li key={item?.name} custom={i} variants={itemVariants}>
                   <AnimatedTypography
                     className="text-p-md uppercase text-white"

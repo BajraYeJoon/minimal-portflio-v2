@@ -17,20 +17,20 @@ const GRID_IMAGES = [
 export default function AboutMeProjectReveal() {
   return (
     <section
-      className="border-t-2 border-b-2 border-surface flex flex-col  py-24"
+      className="border-t-2 border-b-2 border-surface flex flex-col py-14"
       id="about"
     >
       {/* Left side - Info */}
       <div className="flex flex-col gap-20">
-        <div className="grid grid-cols-2 gap-2">
-          <CommonTitle variant="par-large" className="text-surface">
-            Based in San Francisco
+        <div className="grid grid-cols-2 gap-2 leading-normal">
+          <CommonTitle variant="par-medium">
+            Based in Bhaktapur, Nepal
             <br />
-            and Working Worldwide.
+            and Working at AITC
           </CommonTitle>
-          <CommonTitle variant="par-medium" className="text-surface text-right">
+          <CommonTitle variant="par-medium" align="right">
             Passionate Designer and Developer Crafting Visually Captivating
-            Websites with No-Code Solutions
+            Websites with a Touch of Modernity
           </CommonTitle>
         </div>
 
@@ -53,22 +53,22 @@ export default function AboutMeProjectReveal() {
         {/* Stats */}
         <div className="grid grid-cols-2 gap-8">
           <SectionHeader smallHeading="About Me" />
-          <div className="flex flex-col gap-32">
+          <div className="flex flex-col gap-28">
             <CommonTitle variant="par-extra-large">
-              I collaborate with global clients to Cultivate Compelling and
-              Immersive Digital Experiences Through The Realms of Design and
-              Development
+              I thrive on the challenge of transforming ideas into creating
+              better software applications and visully stunning websites that
+              grows business and growth.
             </CommonTitle>
-            <div className="grid grid-cols-2 gap-20">
+            <div className="grid grid-cols-2 gap-20 leading-none">
               <div className="flex flex-col gap-5">
-                <CommonTitle variant="mainHeading">120+</CommonTitle>
+                <CommonTitle variant="mainHeading">10+</CommonTitle>
                 <div className="h-px bg-surface w-full" />
                 <CommonTitle variant="par-small">
                   Completed Projects
                 </CommonTitle>
               </div>
               <div className="flex flex-col gap-5">
-                <CommonTitle variant="mainHeading">8+</CommonTitle>
+                <CommonTitle variant="mainHeading">1+</CommonTitle>
                 <div className="h-px bg-surface w-full" />
                 <CommonTitle variant="par-small">
                   Years of Experience
