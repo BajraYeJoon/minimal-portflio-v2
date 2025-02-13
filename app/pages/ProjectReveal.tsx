@@ -81,7 +81,7 @@ const imageVariants = {
 export default function AboutMeProjectReveal() {
   return (
     <motion.section
-      className="border-t-2 border-b-2 border-surface flex flex-col py-14"
+      className="border-surface flex flex-col border-t-2 border-b-2 py-14"
       initial={{
         y: 40,
         opacity: 0,
@@ -130,7 +130,7 @@ export default function AboutMeProjectReveal() {
 
         {/* Right side - Image Grid */}
         <motion.div
-          className="grid grid-cols-3 gap-4 h-[1086px] overflow-hidden will-change-transform"
+          className="grid h-[1086px] grid-cols-3 gap-4 overflow-hidden will-change-transform"
           variants={imageGridVariants}
           initial="hidden"
           animate="show"
@@ -142,12 +142,12 @@ export default function AboutMeProjectReveal() {
             >
               <motion.div
                 variants={imageVariants}
-                className="w-full h-full bg-subtle"
+                className="bg-subtle h-full w-full"
               >
                 <img
                   src={imagePath}
                   alt=""
-                  className="w-full h-full object-cover"
+                  className="h-full w-full object-cover"
                 />
               </motion.div>
             </div>

@@ -1,4 +1,3 @@
-'use client';
 import NumberFlow from '@number-flow/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
@@ -23,9 +22,16 @@ export default function NumberCounter({
   return (
     <div ref={ref} className="flex flex-col gap-5">
       <CommonTitle variant="mainHeading" className="flex items-center">
-        <NumberFlow value={isInView ? endValue : 0} suffix="+" />
+        <NumberFlow
+          value={isInView ? endValue : 0}
+          suffix="+"
+          format={{ notation: 'standard' }}
+          transformTiming={{ duration: 2000, easing: 'ease-out' }}
+          spinTiming={{ duration: 2000, easing: 'ease-out' }}
+          willChange={true}
+        />
       </CommonTitle>
-      <div className="h-px bg-surface w-full" />
+      <div className="bg-surface h-px w-full" />
       <CommonTitle variant="par-small">{label}</CommonTitle>
     </div>
   );
