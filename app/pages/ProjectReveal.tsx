@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Button } from '~/components/common/Button';
 import CommonTitle from '~/components/common/CommonTitle';
+import NumberCounter from '~/components/common/RollingNumber';
 import SectionHeader from '~/components/common/SectionHeader';
 
 const GRID_IMAGES = [
@@ -40,6 +41,39 @@ const itemVariants = {
       stiffness: 100,
       damping: 40,
       ease: 'easeIn',
+    },
+  },
+};
+
+const imageGridVariants = {
+  hidden: {
+    opacity: 0,
+    scale: 1.8,
+  },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 1.2,
+      ease: [0.25, 1, 0.5, 1],
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: {
+    y: 100,
+    scale: 1.8,
+    opacity: 0,
+  },
+  show: {
+    y: 0,
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 1.4,
+      ease: [0.25, 1, 0.5, 1],
     },
   },
 };
@@ -95,20 +129,30 @@ export default function AboutMeProjectReveal() {
         </motion.div>
 
         {/* Right side - Image Grid */}
-        <div className="grid grid-cols-3 gap-4">
+        <motion.div
+          className="grid grid-cols-3 gap-4 h-[1086px] overflow-hidden will-change-transform"
+          variants={imageGridVariants}
+          initial="hidden"
+          animate="show"
+        >
           {GRID_IMAGES.map((imagePath, i) => (
             <div
               key={`grid-image-${imagePath}`}
-              className="aspect-[4/3] bg-subtle rounded-md overflow-hidden"
+              className="overflow-hidden rounded-md"
             >
-              <img
-                src={imagePath}
-                alt=""
-                className="w-full h-full object-cover"
-              />
+              <motion.div
+                variants={imageVariants}
+                className="w-full h-full bg-subtle"
+              >
+                <img
+                  src={imagePath}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 gap-8">
@@ -120,20 +164,8 @@ export default function AboutMeProjectReveal() {
               grows business and growth.
             </CommonTitle>
             <div className="grid grid-cols-2 gap-20 leading-none">
-              <div className="flex flex-col gap-5">
-                <CommonTitle variant="mainHeading">10+</CommonTitle>
-                <div className="h-px bg-surface w-full" />
-                <CommonTitle variant="par-small">
-                  Completed Projects
-                </CommonTitle>
-              </div>
-              <div className="flex flex-col gap-5">
-                <CommonTitle variant="mainHeading">1+</CommonTitle>
-                <div className="h-px bg-surface w-full" />
-                <CommonTitle variant="par-small">
-                  Years of Experience
-                </CommonTitle>
-              </div>
+              <NumberCounter endValue={10} label="Completed Projects" />
+              <NumberCounter endValue={1} label="Years of Experience" />
             </div>
             {/* Button */}
             <Button href="/about">More About Me</Button>

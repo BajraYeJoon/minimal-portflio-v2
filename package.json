@@ -18,6 +18,7 @@
     "release": "semantic-release"
   },
   "dependencies": {
+    "@number-flow/react": "^0.5.5",
     "@react-router/node": "^7.1.5",
     "@react-router/serve": "^7.1.5",
     "isbot": "^5.1.17",
