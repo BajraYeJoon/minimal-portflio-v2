@@ -26,7 +26,7 @@ export default function WordPullUp({
           variants={letterPullUpVariant}
           initial="initial"
           whileInView="animate"
-          viewport={{ once: true, margin: '-200px' }}
+          viewport={{ once: true, margin: '-100px' }}
           custom={index}
           className="inline-block"
         >

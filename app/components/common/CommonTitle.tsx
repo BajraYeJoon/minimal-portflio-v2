@@ -18,7 +18,7 @@ interface CommonTitleProps {
   className?: string;
   align?: TitleAlignment;
   id?: string;
-  as?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
+  as?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'blockquote';
 }
 
 const variantStyles: Record<TitleVariant, string> = {

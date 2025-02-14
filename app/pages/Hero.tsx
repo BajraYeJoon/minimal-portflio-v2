@@ -11,8 +11,8 @@ export function Hero() {
 
   const titles = [
     "Hi, I'm Binaya Bajra",
-    'Frontend Website',
-    'Frontend Developer',
+    'Frontend interface',
+    '& Web Developer',
   ];
 
   return (

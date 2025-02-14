@@ -11,17 +11,17 @@ interface NavLinkProps {
 export default function Footer() {
   return (
     <>
-      <div className="flex border-b-2 border-surface items-center py-12 justify-between gap-8">
+      <div className="border-surface flex items-center justify-between gap-8 border-b-2 py-12">
         {/* Logo */}
         <Link to="/">
-          <CommonTitle className="uppercase">John Carter</CommonTitle>
+          <CommonTitle className="uppercase">Bajrayejoon</CommonTitle>
         </Link>
 
         <ul className="flex items-center gap-8">
           {navigation.map((item, i) => (
             <li key={item?.name}>
               <AnimatedTypography
-                className="text-p-md uppercase text-white"
+                className="text-p-md text-white uppercase"
                 dividerDirection="center"
                 component="h2"
                 to={item?.path}
@@ -37,7 +37,7 @@ export default function Footer() {
           {socialLinks.map((item, i) => (
             <li key={item?.name}>
               <AnimatedTypography
-                className="text-p-md uppercase text-white"
+                className="text-p-md text-white uppercase"
                 dividerDirection="center"
                 component="h2"
                 to={item?.link}

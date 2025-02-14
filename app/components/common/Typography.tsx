@@ -34,7 +34,7 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
           {
             ref,
             className: cn(
-              'inline-block translate-y-0 scale-100',
+              'inline-block py-2.5 translate-y-0 scale-100',
               animated && 'group-hover:scale-95 group-hover:-translate-y-full',
               'animated-transition',
             ),
@@ -46,7 +46,7 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
           component,
           {
             className: cn(
-              'inline-block absolute left-0 top-full w-full',
+              'inline-block absolute py-2.5 left-0 top-full w-full',
               animated &&
                 'group-hover:-translate-y-full scale-95 group-hover:scale-100',
               'animated-transition',

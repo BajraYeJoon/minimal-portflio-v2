@@ -1,5 +1,5 @@
-import NumberFlow from '@number-flow/react';
-import { useInView } from 'motion/react';
+import { easeInOut } from 'motion';
+import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import CommonTitle from './CommonTitle';
 
@@ -8,36 +8,6 @@ interface RollingNumberProps {
   label: string;
 }
 
-export default function NumberCounter({
-  endValue,
-  label,
-}: Readonly<RollingNumberProps>) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, {
-    once: true,
-    margin: '-200px',
-    amount: 'some',
-  });
-
-  return (
-    <div ref={ref} className="flex flex-col gap-5">
-      <CommonTitle variant="mainHeading" className="flex items-center">
-        <NumberFlow
-          value={isInView ? endValue : 0}
-          suffix="+"
-          format={{ notation: 'standard' }}
-          transformTiming={{ duration: 2000, easing: 'ease-out' }}
-          spinTiming={{ duration: 2000, easing: 'ease-out' }}
-          willChange={true}
-        />
-      </CommonTitle>
-      <div className="bg-surface h-px w-full" />
-      <CommonTitle variant="par-small">{label}</CommonTitle>
-    </div>
-  );
-}
-
-/* Original Implementation (Commented Out)
 const NumberRoll = ({
   endValue,
   animate,
@@ -45,29 +15,37 @@ const NumberRoll = ({
   endValue: number;
   animate: boolean;
 }) => {
-  const sequence = Array.from({ length: endValue + 1 }, (_, i) => i);
-  const itemHeight = 64;
-  const containerHeight = itemHeight * (endValue + 1);
+  const mappingNumber = Array.from({ length: endValue + 1 }, (_, i) => i);
+  const itemHeight = 63.5;
 
   return (
     <motion.span
-      initial="hidden"
-      animate={animate ? 'visible' : 'hidden'}
-      variants={{
-        hidden: { y: 0 },
-        visible: { y: -containerHeight + itemHeight },
-      }}
-      transition={{
-        duration: 2,
-        ease: easeInOut,
-      }}
+      initial={{ y: 0 }}
+      animate={animate ? { y: -endValue * itemHeight } : { y: 0 }}
+      transition={{ duration: 2, ease: easeInOut }}
+      className="inline-flex flex-col items-center"
     >
-      {sequence.map((num) => (
-        <span key={num} className="h-fit flex items-center">
-          {num}
-        </span>
+      {mappingNumber.map((num) => (
+        <span key={num}>{num}</span>
       ))}
     </motion.span>
   );
 };
-*/
+
+export default function NumberCounter({ endValue, label }: RollingNumberProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  return (
+    <div ref={ref} className="flex flex-col items-start justify-center gap-5">
+      <CommonTitle
+        variant="mainHeading"
+        className="relative flex h-32 items-center justify-center [mask-image:linear-gradient(to_bottom,transparent_0%,black_29.5%,black_80.5%,transparent_100%)]"
+      >
+        <NumberRoll endValue={endValue} animate={isInView} />+
+      </CommonTitle>
+      <div className="bg-surface h-px w-full" />
+      <CommonTitle variant="par-small">{label}</CommonTitle>
+    </div>
+  );
+}
