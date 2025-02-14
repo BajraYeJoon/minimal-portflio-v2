@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import StickyHeader from '~/components/StickyHeader';
 import { DesktopNav } from './DesktopNav';
 import { MobileNav } from './MobileNav';
 
@@ -10,9 +11,9 @@ export function Navbar() {
   };
 
   return (
-    <nav className="py-4">
+    <StickyHeader>
       <DesktopNav />
       <MobileNav isOpen={isMenuOpen} onToggle={toggleMenu} />
-    </nav>
+    </StickyHeader>
   );
 }

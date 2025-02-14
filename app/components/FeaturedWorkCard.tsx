@@ -17,27 +17,31 @@ export default function FeaturedWorkCard({
   return (
     <div
       className={cn(
-        'flex flex-col gap-6 group',
+        'group flex flex-col gap-6',
         isLarge && 'md:col-span-2 md:row-span-2',
         className,
       )}
     >
       <div
         className={cn(
-          'relative overflow-hidden rounded-md ',
+          'relative overflow-hidden rounded-md',
           isLarge ? 'aspect-[16/9]' : 'aspect-[4/3]',
         )}
       >
         <img
           src={work?.image}
           alt={work?.title}
-          className="object-cover w-full h-full animated-transition group-hover:scale-110"
+          className="animated-transition h-full w-full object-cover group-hover:scale-110"
         />
       </div>
 
       <div className="flex flex-col gap-0.5">
-        <div className="relative flex items-center justify-between overflow-hidden ">
-          <AnimatedTypography component="h4" className={'text-project '}>
+        <div className="relative flex items-center justify-between overflow-hidden">
+          <AnimatedTypography
+            component="h4"
+            className={'text-project'}
+            projectPadding={false}
+          >
             {work?.title}
           </AnimatedTypography>
           <Button variant="link" size="link">
@@ -49,13 +53,13 @@ export default function FeaturedWorkCard({
           {work?.services?.map((service, index) => (
             <div
               key={`${service?.toLowerCase()}-${index}`}
-              className="flex items-center gap-3 group/service"
+              className="group/service flex items-center gap-3"
             >
-              <span className="text-service opacity-75 transition-opacity duration-700 group-hover:opacity-100 ">
+              <span className="text-service opacity-75 transition-opacity duration-700 group-hover:opacity-100">
                 {service}
               </span>
               {index < work?.services?.length - 1 && (
-                <div className="size-2 rounded-full bg-surface" />
+                <div className="bg-surface size-2 rounded-full" />
               )}
             </div>
           ))}

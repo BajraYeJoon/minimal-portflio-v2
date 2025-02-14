@@ -9,6 +9,7 @@ interface AnimatedTypographyProps extends React.HTMLAttributes<HTMLElement> {
   component?: TypographyElement;
   dividerDirection?: 'ltr' | 'rtl' | 'center';
   showDivider?: boolean;
+  projectPadding?: boolean;
   to?: string;
   animated?: boolean;
 }
@@ -21,6 +22,7 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
       children,
       dividerDirection = 'ltr',
       showDivider = true,
+      projectPadding = true,
       animated = true,
       to,
       ...rest
@@ -34,9 +36,10 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
           {
             ref,
             className: cn(
-              'inline-block translate-y-0 scale-100',
+              'inline-block  translate-y-0 scale-100',
               animated && 'group-hover:scale-95 group-hover:-translate-y-full',
               'animated-transition',
+              projectPadding && 'py-2.5',
             ),
             ...rest,
           },
@@ -46,10 +49,11 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
           component,
           {
             className: cn(
-              'inline-block absolute left-0 top-full w-full',
+              'inline-block absolute  left-0 top-full w-full',
               animated &&
                 'group-hover:-translate-y-full scale-95 group-hover:scale-100',
               'animated-transition',
+              projectPadding && 'py-2.5',
             ),
             ...rest,
           },
@@ -62,10 +66,10 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
       <>
         {content}
         {showDivider && (
-          <div className="relative h-[2px] w-full mt-1">
+          <div className="relative h-[2px] w-full">
             <div
               className={cn(
-                'absolute inset-0 bg-current transform scale-x-0',
+                'absolute inset-0 scale-x-0 transform bg-current',
                 'animated-transition group-hover:scale-x-100',
                 dividerDirection === 'rtl' && 'origin-right',
                 dividerDirection === 'ltr' && 'origin-left',

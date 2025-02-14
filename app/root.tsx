@@ -11,6 +11,7 @@ import type { Route } from './+types/root';
 import './app.css';
 import Footer from './pages/layout/Footer';
 import { Navbar } from './pages/layout/navbar/Navbar';
+import LenisProvider from './utils/lenis';
 
 export const links: Route.LinksFunction = () => [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -18,10 +19,6 @@ export const links: Route.LinksFunction = () => [
     rel: 'preconnect',
     href: 'https://fonts.gstatic.com',
     crossOrigin: 'anonymous',
-  },
-  {
-    rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap',
   },
   {
     rel: 'icon',
@@ -44,7 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-backgroundColor text-surface mx-auto font-medium select-none">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -55,11 +52,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <>
+    <LenisProvider>
       <Navbar />
       <Outlet />
       <Footer />
-    </>
+    </LenisProvider>
   );
 }
 
