@@ -14,7 +14,7 @@ export type WorkSize = 'normal' | 'large';
 export interface FeaturedWork {
   title: string;
   image: string;
-  services: Service[];
+  services: string[];
   link: string;
   size?: WorkSize;
 }

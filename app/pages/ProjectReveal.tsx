@@ -6,15 +6,15 @@ import NumberCounter from '~/components/common/RollingNumber';
 import SectionHeader from '~/components/common/SectionHeader';
 
 const GRID_IMAGES = [
-  '/public/assets/asset 0.jpeg',
-  '/public/assets/asset 1.jpeg',
-  '/public/assets/asset 2.jpeg',
-  '/public/assets/asset 3.jpeg',
-  '/public/assets/asset 4.jpeg',
-  '/public/assets/asset 5.jpeg',
-  '/public/assets/asset 6.jpeg',
-  '/public/assets/asset 7.jpeg',
-  '/public/assets/asset 8.jpeg',
+  '/assets/hawkai.png',
+  '/assets/hawkai.png',
+  '/assets/hawkai.png',
+  '/assets/hawkai.png',
+  '/assets/hawkai.png',
+  '/assets/hawkai.png',
+  '/assets/hawkai.png',
+  '/assets/hawkai.png',
+  '/assets/hawkai.png',
 ];
 
 const containerVariants = {

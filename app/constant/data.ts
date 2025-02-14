@@ -57,9 +57,9 @@ export const serviceCategories: ServiceCategory[] = [
 
 export const featuredWorks: FeaturedWork[] = [
   {
-    title: 'Luxe Beauty',
-    image: 'https://framerusercontent.com/images/DxQ3NLs9ZMmZvZfp94zx6SOU.jpg',
-    services: ['UI/UX Design', 'Web Development', 'Digital Design'],
+    title: 'HawkAi Company Site',
+    image: '/assets/hawkai.png',
+    services: ['Web Development', 'Next.js', 'Tailwind CSS'],
     link: './works/luxe-beauty',
     size: 'normal',
   },
