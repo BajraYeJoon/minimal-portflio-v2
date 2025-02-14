@@ -15,14 +15,20 @@ const NumberRoll = ({
   endValue: number;
   animate: boolean;
 }) => {
-  const mappingNumber = Array.from({ length: endValue + 1 }, (_, i) => i);
+  const startValue = Math.max(0, endValue - 4);
+  const mappingNumber = Array.from(
+    { length: endValue - startValue + 1 },
+    (_, i) => startValue + i,
+  );
   const itemHeight = 63.5;
 
   return (
     <motion.span
       initial={{ y: 0 }}
-      animate={animate ? { y: -endValue * itemHeight } : { y: 0 }}
-      transition={{ duration: 2, ease: easeInOut }}
+      animate={
+        animate ? { y: -(endValue - startValue) * itemHeight } : { y: 0 }
+      }
+      transition={{ duration: 3, ease: easeInOut }}
       className="inline-flex flex-col items-center"
     >
       {mappingNumber.map((num) => (

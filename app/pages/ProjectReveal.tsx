@@ -226,8 +226,8 @@ export default function AboutMeProjectReveal() {
               grows business and growth.
             </CommonTitle>
             <div className="grid grid-cols-2 gap-20 leading-none">
-              <NumberCounter endValue={15} label="Completed Projects" />
-              <NumberCounter endValue={4} label="Years of Experience" />
+              <NumberCounter endValue={10} label="Completed Projects" />
+              <NumberCounter endValue={1} label="Years of Experience" />
             </div>
             {/* Button */}
             <Button href="/about">More About Me</Button>
