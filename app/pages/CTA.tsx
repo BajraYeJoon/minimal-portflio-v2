@@ -4,7 +4,7 @@ import AnimatedTypography from '~/components/common/Typography';
 
 export default function CTA() {
   return (
-    <section className="border-surface flex h-[65vh] flex-col items-center justify-center border-b-2 py-20">
+    <section className="border-surface common-padding flex h-[65vh] flex-col items-center justify-center border-b-2 py-20">
       <div className="flex flex-col items-center justify-center gap-12">
         <div className="flex flex-col items-center justify-center gap-4">
           <CommonTitle variant="par-medium">

@@ -16,7 +16,7 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative min-h-[70vh] overflow-hidden pt-[240px] pb-[80px] 2xl:pt-[180px]">
+    <section className="common-padding relative min-h-[70vh] overflow-hidden pt-[240px] pb-[80px] 2xl:pt-[180px]">
       <motion.div
         variants={containerRevealVariants}
         initial="hidden"

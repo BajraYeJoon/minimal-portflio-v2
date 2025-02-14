@@ -66,11 +66,11 @@
 
 
 body {
-  @apply bg-backgroundColor text-surface font-medium mx-auto flex flex-col;
   /* For Firefox */
     scrollbar-width: thin;
     scrollbar-color: var(--color-subtle) transparent;
   }
+
 
 /* Custom Scrollbar Styles for Webkit browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
@@ -100,11 +100,14 @@ body {
   }
 }
 
-@layer components {
+@layer utilities {
   .animated-transition {
     @apply transition-transform duration-700 ease-in-out;
   }
 .animated-transition-colors {
   @apply transition-colors duration-700 ease-in-out;
+}
+.common-padding {
+  @apply mx-4 md:mx-16;
 }
 }

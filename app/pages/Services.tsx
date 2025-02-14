@@ -5,23 +5,23 @@ import { serviceCategories } from '~/constant/data';
 export default function Services() {
   return (
     <section
-      className="border-b-2 border-surface flex flex-col gap-20 py-20"
+      className="border-surface common-padding flex flex-col gap-20 border-b-2 py-20"
       id="services"
     >
       <SectionHeader smallHeading="Services" title="What I Do" />
 
       <div className="flex flex-col gap-14">
         {serviceCategories?.map((category) => (
-          <div key={category?.title} className="flex group flex-col">
-            <div className="h-0.5 group-hover:h-0.5 w-full bg-subtle animated-transition-colors group-hover:bg-surface mb-14" />
+          <div key={category?.title} className="group flex flex-col">
+            <div className="bg-subtle animated-transition-colors group-hover:bg-surface mb-14 h-0.5 w-full group-hover:h-0.5" />
 
-            <div className="flex gap-8  w-full flex-nowrap items-center justify-start">
+            <div className="flex w-full flex-nowrap items-center justify-start gap-8">
               <CommonTitle variant="service-heading" className="basis-1/2">
                 {category.title}
               </CommonTitle>
 
               {/* Description */}
-              <div className="grid grid-cols-1 basis-1/2 md:grid-cols-2 gap-x-10 gap-y-4">
+              <div className="grid basis-1/2 grid-cols-1 gap-x-10 gap-y-4 md:grid-cols-2">
                 <div className="flex flex-col gap-1">
                   {category?.services?.slice(0, 3)?.map((service) => (
                     <CommonTitle

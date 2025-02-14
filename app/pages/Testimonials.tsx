@@ -8,7 +8,7 @@ export default function Testimonials() {
 
   return (
     <section
-      className="border-surface grid gap-20 border-b-2 py-20 md:grid-cols-2"
+      className="border-surface common-padding grid gap-20 border-b-2 py-20 md:grid-cols-2"
       id="testimonials"
     >
       <div className="sticky top-[10vh] h-fit">
