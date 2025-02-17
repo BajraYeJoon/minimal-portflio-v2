@@ -6,15 +6,14 @@ import NumberCounter from '~/components/common/RollingNumber';
 import SectionHeader from '~/components/common/SectionHeader';
 
 const GRID_IMAGES = [
-  '/assets/hawkai.png',
-  '/assets/hawkai.png',
-  '/assets/hawkai.png',
-  '/assets/hawkai.png',
-  '/assets/hawkai.png',
-  '/assets/hawkai.png',
-  '/assets/hawkai.png',
-  '/assets/hawkai.png',
-  '/assets/hawkai.png',
+  'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739785435/portfolio/uqdkx0usfmuywbqzwvmi.png',
+  'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739785435/portfolio/maz1js9tiew4hg1vfnxu.png',
+  'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739785436/portfolio/pg2b6bgv7v5nglzcpy22.png',
+  'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739785574/portfolio/wzrfvjz0umto1ylb0ujw.png',
+  '  https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739785575/portfolio/ujdvltrjoa8m3pbzmemt.png',
+  'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739785435/portfolio/rudfyny3ay8nihxf9cie.png',
+  ' https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739785612/portfolio/xeziu9sxcuujixkbkxlh.png',
+  'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739786678/portfolio/p8vwk7xurzjg43th9f2q.png',
 ];
 
 const containerVariants = {

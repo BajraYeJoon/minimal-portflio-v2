@@ -57,46 +57,48 @@ export const serviceCategories: ServiceCategory[] = [
 
 export const featuredWorks: FeaturedWork[] = [
   {
-    title: 'HawkAi Company Site',
-    image: '/assets/hawkai.png',
-    services: ['Web Development', 'Next.js', 'Tailwind CSS'],
-    link: './works/luxe-beauty',
-    size: 'normal',
-  },
-  {
-    title: 'Elegant Pack',
+    title: 'Revive',
     image:
-      'https://framerusercontent.com/images/Irv3n6E0fswOvCAIziAqzrkweE.jpg',
-    services: ['Brand Identity', 'Digital Design', 'Web Development'],
-    link: './works/elegant-pack',
+      'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739780832/portfolio/emg404tgywhucdwwr29q.jpg',
+    services: ['Web Development', 'Next.js', 'Tailwind CSS'],
+    link: 'https://revive-eight.vercel.app/',
     size: 'normal',
   },
   {
-    title: 'Ridged',
-    image: 'https://framerusercontent.com/images/hPTsSt1sQmduV1ssOaArMLvY.jpg',
+    title: 'AITC International',
+    image:
+      'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739784566/portfolio/qtvksn3bvmutzqyl9heu.png',
     services: [
-      'UI/UX Design',
-      'Web Development',
-      'Digital Design',
-      'Web Development',
+      'UI Development',
+      'Nextjs',
+      'Responsive Design',
+      'Component Design',
     ],
-    link: './works/ridged',
+    link: 'https://aitc.ai',
+    size: 'normal',
+  },
+  {
+    title: 'HawkAi Company Site',
+    image:
+      'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739780834/portfolio/f7zeld8slhe0pve1nxpr.png',
+    services: ['Web Development', 'Hygraph CMS', 'Motion'],
+    link: 'https://hawkai.online',
     size: 'large',
   },
   {
-    title: 'Water Drops',
+    title: 'Roshan Budhathoki Portfolio',
     image:
-      'https://framerusercontent.com/images/913p8tf1vpDCxsOeybNlUsC5tPU.jpg',
-    services: ['UI/UX Design', 'Web Development', 'Digital Design'],
-    link: './works/water-drops',
+      'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739780832/portfolio/lmvmn4joykq87cypwkji.jpg',
+    services: ['Next js', 'GSAP', 'SCSS'],
+    link: 'http://roshanbudhathoki.hawkai.online/',
     size: 'normal',
   },
   {
-    title: 'Hydra Lips',
+    title: 'TheOrder AI',
     image:
-      'https://framerusercontent.com/images/GUGKMpnSRNesMtmP2XGPlWqWYE.jpg',
-    services: ['Brand Identity', 'Digital Design'],
-    link: './works/hydra-lips',
+      'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739780832/portfolio/fawhck2lqelrbwef7jov.jpg',
+    services: ['Next js', 'Weaviate', 'Interface Development'],
+    link: 'https://theorder.ai',
     size: 'normal',
   },
 ];
