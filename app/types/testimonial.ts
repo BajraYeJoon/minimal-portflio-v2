@@ -1,8 +1,8 @@
 export interface TestimonialProps {
   number: string;
   quote: string;
-  index: number;
-  isFirst: boolean;
+  index?: number;
+  isFirst?: boolean;
   author: {
     name: string;
     company: string;

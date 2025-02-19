@@ -40,7 +40,7 @@ const NumberRoll = ({
 
 export default function NumberCounter({ endValue, label }: RollingNumberProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-200px' });
 
   return (
     <div ref={ref} className="flex flex-col items-start justify-center gap-5">

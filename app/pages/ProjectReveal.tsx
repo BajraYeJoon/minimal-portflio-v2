@@ -6,15 +6,15 @@ import NumberCounter from '~/components/common/RollingNumber';
 import SectionHeader from '~/components/common/SectionHeader';
 
 const GRID_IMAGES = [
-  '/public/assets/asset 0.jpeg',
-  '/public/assets/asset 1.jpeg',
-  '/public/assets/asset 2.jpeg',
-  '/public/assets/asset 3.jpeg',
-  '/public/assets/asset 4.jpeg',
-  '/public/assets/asset 5.jpeg',
-  '/public/assets/asset 6.jpeg',
-  '/public/assets/asset 7.jpeg',
-  '/public/assets/asset 8.jpeg',
+  'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739785435/portfolio/uqdkx0usfmuywbqzwvmi.png',
+  'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739785435/portfolio/maz1js9tiew4hg1vfnxu.png',
+  'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739785436/portfolio/pg2b6bgv7v5nglzcpy22.png',
+  'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739942321/portfolio/lbgjusumlnw3dr8lwkq8.png',
+  '  https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739785575/portfolio/ujdvltrjoa8m3pbzmemt.png',
+  'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739785435/portfolio/rudfyny3ay8nihxf9cie.png',
+  ' https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739785612/portfolio/xeziu9sxcuujixkbkxlh.png',
+  'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739786678/portfolio/p8vwk7xurzjg43th9f2q.png',
+  'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739786404/portfolio/amfqmuyugb0yqetbajzo.png',
 ];
 
 const containerVariants = {
