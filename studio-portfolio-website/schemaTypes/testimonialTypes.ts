@@ -9,21 +9,19 @@ export const testimonialType = defineType({
       name: 'number',
       title: 'Number',
       type: 'string',
-      description: 'The testimonial number/identifier',
+      description: 'Order number for the testimonial (e.g., "01", "02")',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'quote',
       title: 'Quote',
       type: 'text',
-      description: 'The testimonial text',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'author',
       title: 'Author',
       type: 'object',
-      validation: (rule) => rule.required(),
       fields: [
         defineField({
           name: 'name',
@@ -32,14 +30,14 @@ export const testimonialType = defineType({
           validation: (rule) => rule.required(),
         }),
         defineField({
-          name: 'company',
-          title: 'Company',
+          name: 'position',
+          title: 'Position',
           type: 'string',
           validation: (rule) => rule.required(),
         }),
         defineField({
-          name: 'position',
-          title: 'Position',
+          name: 'company',
+          title: 'Company',
           type: 'string',
           validation: (rule) => rule.required(),
         }),
@@ -55,6 +53,13 @@ export const testimonialType = defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      title: 'author.name',
+      subtitle: 'quote',
+      media: 'author.image',
+    },
+  },
 });
 
 export const schemaTypes = [testimonialType];

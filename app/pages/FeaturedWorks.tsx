@@ -1,18 +1,18 @@
 import FeaturedWorkCard from '~/components/FeaturedWorkCard';
 import SectionHeader from '~/components/common/SectionHeader';
-import { featuredWorks } from '~/constant/data';
+import type { WorkProps } from '~/types/work';
 
-export default function FeaturedWorks() {
+export default function FeaturedWorks({ works, error }: Readonly<WorkProps>) {
+  if (error) {
+    return <div className="text-red-500">{error}</div>;
+  }
+
   return (
-    <section
-      className="border-surface common-padding flex flex-col gap-20 border-b-2 py-14"
-      id="works"
-    >
+    <section className="container mx-auto px-5 py-24">
       <SectionHeader smallHeading="Portfolio" title="Featured Works" />
 
-      {/* Featured Works Grid */}
-      <div className="grid auto-rows-auto grid-cols-1 gap-x-5 gap-y-10 md:grid-cols-2">
-        {featuredWorks?.map((work) => (
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {works.map((work) => (
           <FeaturedWorkCard key={work?.title} work={work} />
         ))}
       </div>
