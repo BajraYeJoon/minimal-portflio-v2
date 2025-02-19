@@ -21,7 +21,7 @@ export default function Testimonials() {
       <div
         ref={containerRef}
         className="relative"
-        style={{ height: `${testimonials.length * 50}vh` }}
+        style={{ height: `${testimonials.length * 60}vh` }}
       >
         {testimonials.map((testimonial, index) => (
           <div
