@@ -1,9 +1,15 @@
+import type { SanityDocument } from '@sanity/client';
 import { useRef } from 'react';
 import { TestimonialCard } from '~/components/TestimonialCard';
 import SectionHeader from '~/components/common/SectionHeader';
-import { testimonials } from '~/constant/testimonials';
 
-export default function Testimonials() {
+interface TestimonialsProps {
+  testimonials: SanityDocument[];
+}
+
+export default function Testimonials({
+  testimonials,
+}: Readonly<TestimonialsProps>) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -21,11 +27,11 @@ export default function Testimonials() {
       <div
         ref={containerRef}
         className="relative"
-        style={{ height: `${testimonials.length * 60}vh` }}
+        style={{ height: `${testimonials?.length * 60}vh` }}
       >
-        {testimonials.map((testimonial, index) => (
+        {testimonials?.map((testimonial, index) => (
           <div
-            key={testimonial.number}
+            key={testimonial._id}
             className="sticky top-[10vh] right-0 left-0 z-40 px-4 md:px-16"
           >
             <TestimonialCard {...testimonial} isFirst={index === 0} />
