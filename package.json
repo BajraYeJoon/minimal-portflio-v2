@@ -19,8 +19,11 @@
   },
   "dependencies": {
     "@number-flow/react": "^0.5.5",
+    "@portabletext/react": "^3.2.1",
     "@react-router/node": "^7.1.5",
     "@react-router/serve": "^7.1.5",
+    "@sanity/client": "^6.28.0",
+    "@sanity/image-url": "^1.1.0",
     "isbot": "^5.1.17",
     "lenis": "^1.1.20",
     "motion": "^12.4.2",

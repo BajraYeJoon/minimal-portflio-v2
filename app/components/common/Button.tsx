@@ -60,7 +60,7 @@ const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
   }) => {
     return (
       <Link
-        to={href ?? ''}
+        to={'/'}
         className={getButtonClasses({
           variant,
           size,

@@ -1,13 +1,22 @@
-import type { TestimonialProps } from '~/types/testimonial';
+import type { SanityDocument } from '@sanity/client';
+import { urlFor } from '~/sanity/imageBuilder';
 import { cn } from '~/utils/cn';
 import CommonTitle from './common/CommonTitle';
+
+interface TestimonialCardProps extends SanityDocument {
+  isFirst?: boolean;
+}
 
 export const TestimonialCard = ({
   number,
   quote,
   author,
   isFirst,
-}: TestimonialProps) => {
+}: TestimonialCardProps) => {
+  const imageUrl = author?.image
+    ? urlFor(author.image)?.width(65)?.height(65)?.url()
+    : '';
+
   return (
     <div
       className={cn(
@@ -17,20 +26,20 @@ export const TestimonialCard = ({
       )}
     >
       <CommonTitle className="text-muted text-button-md">{number}</CommonTitle>
-
       <CommonTitle as="blockquote" variant="par-small" className="text-surface">
-        {quote}
+        <q>{quote}</q>
       </CommonTitle>
 
       <figure className="flex items-center gap-4">
         <div className="size-[65px] overflow-hidden rounded-full">
-          <img
-            src={author?.image}
-            alt={author?.name}
-            className="h-full w-full object-cover"
-          />
+          {imageUrl && (
+            <img
+              src={imageUrl}
+              alt={author?.name}
+              className="h-full w-full object-cover"
+            />
+          )}
         </div>
-
         <figcaption className="flex flex-col">
           <div className="flex items-center gap-2">
             <CommonTitle variant="par-medium" className="text-surface">

@@ -25,7 +25,8 @@ export default function Footer() {
                 className="text-p-md text-white uppercase"
                 dividerDirection="center"
                 component="h2"
-                to={item?.path}
+                to="/"
+                // to={item?.path}
               >
                 {item?.name}
               </AnimatedTypography>
