@@ -2,7 +2,7 @@ import AnimatedTypography from '../../../components/common/Typography';
 
 export function DesktopNav() {
   return (
-    <div className="hidden lg:flex w-full items-center justify-between">
+    <div className="hidden w-full items-center justify-between lg:flex">
       <div className="flex items-center justify-between gap-4">
         <AnimatedTypography
           className="text-link uppercase"
@@ -16,7 +16,7 @@ export function DesktopNav() {
           className="text-link uppercase"
           dividerDirection="rtl"
           component="h2"
-          to="/about"
+          to="/"
         >
           About
         </AnimatedTypography>
@@ -38,7 +38,7 @@ export function DesktopNav() {
           className="text-link uppercase"
           dividerDirection="ltr"
           component="h2"
-          to="/work"
+          to="/"
         >
           Work
         </AnimatedTypography>
@@ -46,7 +46,7 @@ export function DesktopNav() {
           className="text-link uppercase"
           dividerDirection="ltr"
           component="h2"
-          to="/contact"
+          to="/"
         >
           Contact
         </AnimatedTypography>

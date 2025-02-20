@@ -6,6 +6,14 @@ export const workType = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'index',
+      title: 'Display Order',
+      type: 'number',
+      description:
+        'Order in which this work should appear (e.g., 1 for first, 2 for second)',
+      validation: (rule) => rule.required().integer().positive(),
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
@@ -19,7 +27,6 @@ export const workType = defineType({
       description: 'Project screenshot or preview image',
       options: {
         hotspot: true,
-        accept: 'image/*',
       },
       validation: (rule) => rule.required(),
     }),
@@ -63,16 +70,24 @@ export const workType = defineType({
       validation: (rule) => rule.required(),
     }),
   ],
+  orderings: [
+    {
+      title: 'Display Order',
+      name: 'indexAsc',
+      by: [{ field: 'index', direction: 'asc' }],
+    },
+  ],
   preview: {
     select: {
       title: 'title',
       subtitle: 'services',
       media: 'image',
+      index: 'index',
     },
     prepare(selection) {
-      const { title, subtitle, media } = selection;
+      const { title, subtitle, media, index } = selection;
       return {
-        title: title,
+        title: `${index}. ${title}`,
         subtitle: Array.isArray(subtitle) ? subtitle.join(', ') : subtitle,
         media: media,
       };

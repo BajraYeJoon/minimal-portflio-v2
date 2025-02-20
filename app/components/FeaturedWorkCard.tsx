@@ -1,10 +1,10 @@
-import type { FeaturedWork } from '~/types/types';
+import type { SanityDocument } from '@sanity/client';
 import { cn } from '~/utils/cn';
 import { Button } from './common/Button';
 import AnimatedTypography from './common/Typography';
 
 interface FeaturedWorkCardProps {
-  work: FeaturedWork;
+  work: SanityDocument;
   className?: string;
 }
 
@@ -29,8 +29,8 @@ export default function FeaturedWorkCard({
         )}
       >
         <img
-          src={work?.image}
-          alt={work?.title}
+          src={work.image}
+          alt={work.title}
           className="animated-transition h-full w-full object-cover group-hover:scale-110"
         />
       </div>
@@ -42,7 +42,7 @@ export default function FeaturedWorkCard({
             className={'text-project'}
             projectPadding={false}
           >
-            {work?.title}
+            {work.title}
           </AnimatedTypography>
           <Button variant="link" size="link">
             View Project
@@ -50,15 +50,15 @@ export default function FeaturedWorkCard({
         </div>
 
         <div className="flex flex-wrap gap-2">
-          {work?.services?.map((service, index) => (
+          {work.services.map((service: string, index: number) => (
             <div
-              key={`${service?.toLowerCase()}-${index}`}
+              key={service}
               className="group/service flex items-center gap-3"
             >
               <span className="text-service opacity-75 transition-opacity duration-700 group-hover:opacity-100">
                 {service}
               </span>
-              {index < work?.services?.length - 1 && (
+              {index < work.services.length - 1 && (
                 <div className="bg-surface size-2 rounded-full" />
               )}
             </div>

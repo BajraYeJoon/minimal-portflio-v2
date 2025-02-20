@@ -56,7 +56,7 @@ export default function AboutMeProjectReveal() {
 
   return (
     <motion.section
-      className="border-surface flex flex-col border-t-2 border-b-2 py-14"
+      className="mx-auto flex flex-col border-t-2 pt-14"
       initial={{
         y: 40,
         opacity: 0,
@@ -182,7 +182,7 @@ export default function AboutMeProjectReveal() {
         </div>
 
         {/* Stats */}
-        <div className="common-padding grid grid-cols-2 gap-8">
+        <div className="common-padding grid grid-cols-2 gap-8 border-b-2 pb-14">
           <SectionHeader smallHeading="About Me" />
           <div className="flex flex-col gap-28">
             <CommonTitle variant="par-extra-large">

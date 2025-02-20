@@ -1,9 +1,11 @@
 import { defineCliConfig } from 'sanity/cli';
 
 export default defineCliConfig({
+  studioHost: 'bajra-portfoliov2',
+
   api: {
-    projectId: 'z68c4dv3',
-    dataset: 'production',
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
+    dataset: process.env.SANITY_STUDIO_DATASET!,
   },
   /**
    * Enable auto-updates for studios.

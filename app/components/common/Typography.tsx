@@ -83,7 +83,12 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
 
     if (to) {
       return (
-        <Link to={to} className={cn('group', className)}>
+        <Link
+          to={to}
+          target="_blank"
+          rel="noreferrer"
+          className={cn('group', className)}
+        >
           {wrappedContent}
         </Link>
       );
