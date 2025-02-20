@@ -51,7 +51,7 @@ const itemVariants = {
 export function MobileNav({ isOpen, onToggle }: Readonly<MobileNavProps>) {
   return (
     <div className="lg:hidden">
-      <div className="relative z-50 flex items-center w-full justify-between">
+      <div className="relative z-50 flex w-full items-center justify-between">
         <AnimatedTypography
           className="text-p-base uppercase"
           dividerDirection="center"
@@ -71,7 +71,7 @@ export function MobileNav({ isOpen, onToggle }: Readonly<MobileNavProps>) {
             exit="closed"
             variants={menuVariants}
             className={cn(
-              'fixed left-0 z-40 top-0 w-full h-full bg-backgroundColor',
+              'bg-backgroundColor absolute inset-0 z-40 h-full w-full',
               'flex flex-col items-center justify-center',
             )}
             style={{
@@ -82,7 +82,7 @@ export function MobileNav({ isOpen, onToggle }: Readonly<MobileNavProps>) {
               {navigation.map((item, i) => (
                 <motion.li key={item?.name} custom={i} variants={itemVariants}>
                   <AnimatedTypography
-                    className="text-p-md uppercase text-white"
+                    className="text-p-md text-white uppercase"
                     dividerDirection="center"
                     component="h2"
                     to={item?.path}

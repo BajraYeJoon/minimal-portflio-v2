@@ -22,7 +22,7 @@ export default function Footer() {
           {navigation.map((item, i) => (
             <li key={item?.name}>
               <AnimatedTypography
-                className="text-p-md text-white uppercase"
+                className="text-link text-red-500 uppercase"
                 dividerDirection="center"
                 component="h2"
                 to="/"

@@ -30,13 +30,18 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
     ref,
   ) => {
     const content = (
-      <div className="relative overflow-hidden tracking-wide">
+      <div
+        className={cn(
+          'text-link relative overflow-hidden tracking-wide',
+          className,
+        )}
+      >
         {createElement(
           component,
           {
             ref,
             className: cn(
-              'inline-block  translate-y-0 scale-100',
+              'inline-block translate-y-0 scale-100',
               animated && 'group-hover:scale-95 group-hover:-translate-y-full',
               'animated-transition',
               projectPadding && 'py-2.5',
@@ -49,7 +54,7 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
           component,
           {
             className: cn(
-              'inline-block absolute  left-0 top-full w-full',
+              'inline-block  absolute left-0 top-full w-full',
               animated &&
                 'group-hover:-translate-y-full scale-95 group-hover:scale-100',
               'animated-transition',
@@ -83,18 +88,13 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
 
     if (to) {
       return (
-        <Link
-          to={to}
-          target="_blank"
-          rel="noreferrer"
-          className={cn('group', className)}
-        >
+        <Link to={to} target="_blank" rel="noreferrer" className={cn('group')}>
           {wrappedContent}
         </Link>
       );
     }
 
-    return <div className={cn('group', className)}>{wrappedContent}</div>;
+    return <div className={cn('group')}>{wrappedContent}</div>;
   },
 );
 

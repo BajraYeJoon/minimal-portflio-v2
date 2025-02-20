@@ -46,7 +46,7 @@ export default function NumberCounter({ endValue, label }: RollingNumberProps) {
     <div ref={ref} className="flex flex-col items-start justify-center gap-5">
       <CommonTitle
         variant="mainHeading"
-        className="relative flex h-32 items-center justify-center [mask-image:linear-gradient(to_bottom,transparent_0%,black_29.5%,black_80.5%,transparent_100%)]"
+        className="relative flex h-14 items-center justify-center [mask-image:linear-gradient(to_bottom,transparent_0%,black_29.5%,black_80.5%,transparent_100%)] md:h-32"
       >
         <NumberRoll endValue={endValue} animate={isInView} />+
       </CommonTitle>

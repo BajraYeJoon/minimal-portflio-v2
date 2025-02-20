@@ -1,9 +1,11 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import { Link } from 'react-router';
+import ProjectGrid from '~/components/ProjectGrid';
 import { Button } from '~/components/common/Button';
 import CommonTitle from '~/components/common/CommonTitle';
 import NumberCounter from '~/components/common/RollingNumber';
 import SectionHeader from '~/components/common/SectionHeader';
+import { useWindow } from '~/hooks/useWindow';
 
 const GRID_IMAGES = [
   'https://res.cloudinary.com/dw55twddi/image/upload/q_auto,f_auto/v1739785435/portfolio/uqdkx0usfmuywbqzwvmi.png',
@@ -48,6 +50,7 @@ const itemVariants = {
 
 export default function AboutMeProjectReveal() {
   const { scrollYProgress } = useScroll();
+  const { isMobile } = useWindow();
 
   const contentScale = useTransform(scrollYProgress, [0, 0.15], [1.69, 1]);
   const row1Y = useTransform(scrollYProgress, [0, 0.25], [90, -40]);
@@ -56,7 +59,7 @@ export default function AboutMeProjectReveal() {
 
   return (
     <motion.section
-      className="mx-auto flex flex-col border-t-2 pt-14"
+      className="mx-auto flex flex-col border-t-2 pt-10 md:pt-14"
       initial={{
         y: 40,
         opacity: 0,
@@ -77,7 +80,7 @@ export default function AboutMeProjectReveal() {
     >
       <div className="flex flex-col gap-20">
         <motion.div
-          className="common-padding grid grid-cols-2 gap-2 leading-normal"
+          className="common-padding grid gap-8 leading-normal md:grid-cols-2 md:gap-2"
           variants={containerVariants}
           initial="hidden"
           animate="show"
@@ -98,7 +101,10 @@ export default function AboutMeProjectReveal() {
 
           <div className="overflow-hidden">
             <motion.div variants={itemVariants}>
-              <CommonTitle variant="par-medium" align="right">
+              <CommonTitle
+                variant="par-medium"
+                align={isMobile ? 'left' : 'right'}
+              >
                 Passionate Software Developer Crafting Visually Captivating UI
                 and Websites with a Touch of Modernity
               </CommonTitle>
@@ -106,83 +112,18 @@ export default function AboutMeProjectReveal() {
           </div>
         </motion.div>
 
-        <div
-          id="project-grid"
-          className="relative h-[1086px] w-full overflow-hidden perspective-distant"
-        >
-          <motion.div
-            className="grid h-full grid-cols-3 gap-4 will-change-transform transform-3d"
-            style={{
-              scale: contentScale,
-            }}
-          >
-            {/* First Column */}
-            <motion.div
-              className="flex flex-col gap-4 will-change-transform transform-3d"
-              style={{
-                y: row1Y,
-              }}
-            >
-              {GRID_IMAGES.slice(0, 3).map((imagePath, i) => (
-                <motion.div
-                  key={`grid-image-${imagePath}-1`}
-                  className="relative w-full overflow-hidden rounded-md"
-                >
-                  <img
-                    src={imagePath}
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {/* Center Column */}
-            <motion.div
-              className="flex flex-col gap-4 will-change-transform transform-3d"
-              style={{
-                y: row2Y,
-              }}
-            >
-              {GRID_IMAGES.slice(3, 6).map((imagePath, i) => (
-                <motion.div
-                  key={`grid-image-${imagePath}-2`}
-                  className="relative w-full overflow-hidden rounded-md"
-                >
-                  <img
-                    src={imagePath}
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {/* Third Column */}
-            <motion.div
-              className="flex flex-col gap-4 will-change-transform transform-3d"
-              style={{
-                y: row3Y,
-              }}
-            >
-              {GRID_IMAGES.slice(6, 9).map((imagePath, i) => (
-                <motion.div
-                  key={`grid-image-${imagePath}-3`}
-                  className="relative w-full overflow-hidden rounded-md"
-                >
-                  <img
-                    src={imagePath}
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
+        {!isMobile && (
+          <ProjectGrid
+            contentScale={contentScale}
+            row1Y={row1Y}
+            row2Y={row2Y}
+            row3Y={row3Y}
+            images={GRID_IMAGES}
+          />
+        )}
 
         {/* Stats */}
-        <div className="common-padding grid grid-cols-2 gap-8 border-b-2 pb-14">
+        <div className="common-padding grid gap-8 border-b-2 pb-14 md:grid-cols-2">
           <SectionHeader smallHeading="About Me" />
           <div className="flex flex-col gap-28">
             <CommonTitle variant="par-extra-large">

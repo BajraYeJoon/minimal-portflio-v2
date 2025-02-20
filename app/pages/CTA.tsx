@@ -11,10 +11,11 @@ export default function CTA() {
             HAVE A PROJECT IN MIND ?
           </CommonTitle>
           <AnimatedTypography
-            className="text-cta leading-none uppercase"
+            className="text-cta leading-[1.1] uppercase"
+            component="h3"
             showDivider={false}
           >
-            Lets Work Together
+            Let's Work Together
           </AnimatedTypography>
         </div>
         <Button showArrow={false}>Get In Touch</Button>
