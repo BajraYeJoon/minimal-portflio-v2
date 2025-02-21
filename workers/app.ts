@@ -1,3 +1,7 @@
+import type {
+  ExecutionContext,
+  ExportedHandler,
+} from '@cloudflare/workers-types/experimental';
 import { createRequestHandler } from 'react-router';
 
 declare global {
