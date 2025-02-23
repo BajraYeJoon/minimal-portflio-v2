@@ -1,7 +1,7 @@
 {
   "name": "binaya-bajracharya-enhanced-portfolio-website",
   "private": true,
-  "version": "0.0.0-development",
+  "version": "2.0.0-development",
   "type": "module",
   "scripts": {
     "build": "react-router build",
@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format:check": "biome format . --write",
     "lint:fix": "biome check --write .",
-    "validate": "npm run typecheck && npm run lint && npm run format:check",
+    "validate": "bun run typecheck && bun run lint && bun run format:check",
     "release": "semantic-release"
   },
   "dependencies": {
@@ -43,9 +43,11 @@
     "@semantic-release/release-notes-generator": "^14.0.3",
     "@tailwindcss/vite": "^4.0.4",
     "@types/node": "^20",
+    "@cloudflare/workers-types": "^4.20241112.0",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
     "commitlint": "^19.7.1",
+    "@vercel/react-router": "^1.0.2",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "prettier": "^3.5.0",

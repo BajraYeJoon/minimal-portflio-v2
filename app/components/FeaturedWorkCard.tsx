@@ -31,7 +31,7 @@ export default function FeaturedWorkCard({
         <img
           src={work.image}
           alt={work.title}
-          className="animated-transition h-full w-full object-cover group-hover:scale-110"
+          className="animated-transition h-full w-full scale-105 object-cover group-hover:scale-100"
         />
       </div>
 

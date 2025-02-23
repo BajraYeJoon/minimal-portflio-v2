@@ -45,7 +45,8 @@
       },
       "style": {
         "noNonNullAssertion": "off",
-        "noUnusedTemplateLiteral": "off"
+        "noUnusedTemplateLiteral": "off",
+        "noParameterAssign": "off"
       }
     }
   },
