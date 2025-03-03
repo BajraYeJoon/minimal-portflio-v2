@@ -47,7 +47,7 @@
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
     "commitlint": "^19.7.1",
-    "@vercel/react-router": "^1.0.2",
+    "@vercel/react-router": "^1.1.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "prettier": "^3.5.0",
