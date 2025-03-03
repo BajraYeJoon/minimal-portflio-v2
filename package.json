@@ -61,9 +61,14 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": ["biome check --write", "biome format --write"]
+    "*.{js,jsx,ts,tsx}": [
+      "biome check --write",
+      "biome format --write"
+    ]
   },
   "release": {
-    "branches": ["master"]
+    "branches": [
+      "master"
+    ]
   }
 }

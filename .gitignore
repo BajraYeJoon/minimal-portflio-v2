@@ -43,3 +43,6 @@ yarn-error.log*
 
 # Million Lint
 .million
+
+# Local Netlify folder
+.netlify
