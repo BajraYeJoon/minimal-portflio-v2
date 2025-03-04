@@ -18,6 +18,7 @@
     "release": "semantic-release"
   },
   "dependencies": {
+    "@netlify/vite-plugin-react-router": "^1.0.0",
     "@number-flow/react": "^0.5.5",
     "@portabletext/react": "^3.2.1",
     "@react-router/node": "^7.1.5",
@@ -47,7 +48,7 @@
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
     "commitlint": "^19.7.1",
-    "@vercel/react-router": "^1.0.2",
+    "@vercel/react-router": "^1.1.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "prettier": "^3.5.0",
@@ -60,9 +61,14 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": ["biome check --write", "biome format --write"]
+    "*.{js,jsx,ts,tsx}": [
+      "biome check --write",
+      "biome format --write"
+    ]
   },
   "release": {
-    "branches": ["master"]
+    "branches": [
+      "master"
+    ]
   }
 }
