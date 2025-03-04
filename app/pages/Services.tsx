@@ -21,7 +21,7 @@ export default function Services({
           <div key={category._id} className="group flex flex-col">
             <div className="bg-subtle animated-transition-colors group-hover:bg-surface mb-14 h-0.5 w-full group-hover:h-0.5" />
 
-            <div className="flex w-full flex-nowrap items-center justify-start gap-8">
+            <div className="flex w-full flex-col flex-nowrap items-start justify-start gap-8 md:flex-row md:items-center">
               <CommonTitle variant="service-heading" className="basis-1/2">
                 {category.title}
               </CommonTitle>

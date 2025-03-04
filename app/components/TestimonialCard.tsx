@@ -20,7 +20,7 @@ export const TestimonialCard = ({
   return (
     <div
       className={cn(
-        'bg-backgroundColor flex flex-col gap-16 py-14',
+        'bg-backgroundColor flex flex-col gap-16 py-2 sm:py-14',
         !isFirst &&
           'border-subtle hover:border-surface animated-transition-colors border-t-2',
       )}
@@ -30,7 +30,7 @@ export const TestimonialCard = ({
         <q>{quote}</q>
       </CommonTitle>
 
-      <figure className="flex items-center gap-4">
+      <figure className="flex flex-col items-center gap-4 sm:flex-row">
         <div className="size-[65px] overflow-hidden rounded-full">
           {imageUrl && (
             <img
@@ -42,14 +42,23 @@ export const TestimonialCard = ({
         </div>
         <figcaption className="flex flex-col">
           <div className="flex items-center gap-2">
-            <CommonTitle variant="par-medium" className="text-surface">
+            <CommonTitle
+              variant="par-medium"
+              className="text-surface text-nowrap"
+            >
               {author?.name}
             </CommonTitle>
-            <CommonTitle variant="par-extra-small" className="text-muted">
+            <CommonTitle
+              variant="par-extra-small"
+              className="text-muted text-nowrap"
+            >
               • {author?.position}
             </CommonTitle>
           </div>
-          <CommonTitle variant="par-small" className="text-muted">
+          <CommonTitle
+            variant="par-small"
+            className="text-muted text-center sm:text-left"
+          >
             {author?.company}
           </CommonTitle>
         </figcaption>

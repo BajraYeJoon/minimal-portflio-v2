@@ -4,14 +4,14 @@ import AnimatedTypography from '~/components/common/Typography';
 
 export default function CTA() {
   return (
-    <section className="border-surface common-padding flex h-[65vh] flex-col items-center justify-center border-b-2 py-20">
+    <section className="border-surface common-padding flex h-fit flex-col items-center justify-center border-b-2 py-20 md:h-[65vh]">
       <div className="flex flex-col items-center justify-center gap-12">
         <div className="flex flex-col items-center justify-center gap-4">
           <CommonTitle variant="par-medium">
             HAVE A PROJECT IN MIND ?
           </CommonTitle>
           <AnimatedTypography
-            className="text-cta leading-[1.1] uppercase"
+            className="text-heading-5 md:text-cta text-center leading-[1.1] uppercase"
             component="h3"
             showDivider={false}
           >

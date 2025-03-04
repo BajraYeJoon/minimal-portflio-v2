@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'motion/react';
+import React from 'react';
 import { navigation } from '~/constant/data';
 import { cn } from '~/utils/cn';
 import { HamburgerMenu } from '../../../components/common/HamburgerMenu';
@@ -49,11 +50,24 @@ const itemVariants = {
 };
 
 export function MobileNav({ isOpen, onToggle }: Readonly<MobileNavProps>) {
+  // Add useEffect to control body scroll
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   return (
     <div className="lg:hidden">
       <div className="relative z-50 flex w-full items-center justify-between">
         <AnimatedTypography
-          className="text-p-base uppercase"
+          className="text-p-md uppercase"
           dividerDirection="center"
           component="h1"
           to="/"
@@ -71,12 +85,10 @@ export function MobileNav({ isOpen, onToggle }: Readonly<MobileNavProps>) {
             exit="closed"
             variants={menuVariants}
             className={cn(
-              'bg-backgroundColor absolute inset-0 z-40 h-full w-full',
+              'fixed inset-0 z-40 h-screen overflow-hidden',
               'flex flex-col items-center justify-center',
+              'bg-backgroundColor',
             )}
-            style={{
-              zIndex: 40,
-            }}
           >
             <ul className="flex flex-col items-center gap-8">
               {navigation.map((item, i) => (

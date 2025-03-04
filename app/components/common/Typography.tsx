@@ -32,7 +32,7 @@ const AnimatedTypography = forwardRef<HTMLElement, AnimatedTypographyProps>(
     const content = (
       <div
         className={cn(
-          'text-link relative overflow-hidden tracking-wide',
+          'text-button-semi md:text-link relative overflow-hidden tracking-wide',
           className,
         )}
       >

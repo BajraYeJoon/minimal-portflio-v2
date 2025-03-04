@@ -125,13 +125,13 @@ export default function AboutMeProjectReveal() {
         {/* Stats */}
         <div className="common-padding grid gap-8 border-b-2 pb-14 md:grid-cols-2">
           <SectionHeader smallHeading="About Me" />
-          <div className="flex flex-col gap-28">
+          <div className="flex flex-col gap-14 md:gap-16 lg:gap-28">
             <CommonTitle variant="par-extra-large">
               I thrive on the challenge of transforming ideas into creating
               better software applications and visully stunning websites that
               grows business and growth.
             </CommonTitle>
-            <div className="grid grid-cols-2 gap-20 leading-none">
+            <div className="grid grid-cols-2 gap-10 leading-none md:gap-20">
               <NumberCounter endValue={10} label="Completed Projects" />
               <NumberCounter endValue={1} label="Years of Experience" />
             </div>

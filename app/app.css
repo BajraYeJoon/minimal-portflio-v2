@@ -62,6 +62,7 @@
   /* 28px */
   --text-small: 1.125rem;
   /* 18px */
+--testimonial-height: 50vh;
 }
 
 
@@ -110,4 +111,9 @@ body {
 .common-padding {
   @apply mx-4 md:mx-16;
 }
+}
+@media (max-width: 1023px) {
+  :root {
+    --testimonial-height: 80vh;
+  }
 }

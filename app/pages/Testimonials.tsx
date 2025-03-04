@@ -14,10 +14,10 @@ export default function Testimonials({
 
   return (
     <section
-      className="border-surface common-padding grid gap-20 border-b-2 py-20 md:grid-cols-2"
+      className="border-surface common-padding grid gap-6 border-b-2 py-10 md:gap-10 md:py-20 lg:grid-cols-2 lg:gap-20"
       id="testimonials"
     >
-      <div className="sticky top-[10vh] h-fit">
+      <div className="h-fit lg:sticky lg:top-[10vh]">
         <SectionHeader
           smallHeading="Testimonials"
           title="People I've Worked With"
@@ -26,15 +26,26 @@ export default function Testimonials({
 
       <div
         ref={containerRef}
-        className="relative"
-        style={{ height: `${testimonials?.length * 60}vh` }}
+        className="relative w-full"
+        style={{
+          height: testimonials?.length
+            ? `calc(${testimonials.length} * var(--testimonial-height))`
+            : 'auto',
+        }}
       >
         {testimonials?.map((testimonial, index) => (
           <div
             key={testimonial._id}
-            className="sticky top-[10vh] right-0 left-0 z-40 px-4 md:px-16"
+            className="bg-background sticky top-[10vh] right-0 left-0 w-full px-2 sm:px-4 md:px-8 lg:px-16"
+            style={{
+              zIndex: index + 1,
+              height: 'var(--testimonial-height)',
+              backgroundImage: 'var(--backgroundColor)',
+            }}
           >
-            <TestimonialCard {...testimonial} isFirst={index === 0} />
+            <div className="flex h-full w-full items-center">
+              <TestimonialCard {...testimonial} isFirst={index === 0} />
+            </div>
           </div>
         ))}
       </div>
