@@ -39,9 +39,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=GTM-M7D468GP`}
+        />
         <Links />
       </head>
       <body className="bg-backgroundColor text-surface mx-auto font-medium select-none">
+        <noscript>
+          <iframe
+            title="Google Tag Manager"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-M7D468GP"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
         {children}
         <ScrollRestoration />
         <Scripts />
