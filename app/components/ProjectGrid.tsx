@@ -19,7 +19,7 @@ export default function ProjectGrid({
   return (
     <div
       id="project-grid"
-      className="relative h-[50vh] w-full overflow-hidden perspective-distant md:h-[1086px]"
+      className="relative h-[50vh] w-full overflow-hidden perspective-distant md:h-[600px] xl:h-[1024px]"
     >
       <motion.div
         className="grid h-full grid-cols-3 gap-4 will-change-transform transform-3d"
