@@ -5,7 +5,7 @@ export function DesktopNav() {
     <div className="hidden w-full items-center justify-between lg:flex">
       <div className="flex items-center justify-between gap-4">
         <AnimatedTypography
-          className="text-link uppercase"
+          className="uppercase"
           dividerDirection="rtl"
           component="h2"
           to="/"
@@ -13,7 +13,7 @@ export function DesktopNav() {
           Home
         </AnimatedTypography>
         <AnimatedTypography
-          className="text-link uppercase"
+          className="uppercase"
           dividerDirection="rtl"
           component="h2"
           to="/"
@@ -35,7 +35,7 @@ export function DesktopNav() {
 
       <div className="flex items-center justify-between gap-4">
         <AnimatedTypography
-          className="text-link uppercase"
+          className="uppercase"
           dividerDirection="ltr"
           component="h2"
           to="/"
@@ -43,7 +43,7 @@ export function DesktopNav() {
           Work
         </AnimatedTypography>
         <AnimatedTypography
-          className="text-link uppercase"
+          className="uppercase"
           dividerDirection="ltr"
           component="h2"
           to="/"

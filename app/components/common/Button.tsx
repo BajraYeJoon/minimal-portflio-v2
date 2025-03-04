@@ -42,7 +42,7 @@ const getButtonClasses = ({
 
   const sizeClasses = {
     default: 'py-4 md:py-6 px-4 md:px-8 ',
-    link: 'py-2 px-2',
+    link: 'p-2',
   }[size];
 
   return cn(baseClasses, variantClasses, sizeClasses, className);

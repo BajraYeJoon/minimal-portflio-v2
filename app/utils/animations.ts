@@ -46,11 +46,11 @@ export const sectionHeaderRevealVariant = {
 
 export const letterPullUpVariant = {
   initial: {
-    y: 100,
+    y: '100%',
     opacity: 0,
   },
   animate: (i: number) => ({
-    y: 0,
+    y: '0%',
     opacity: 1,
     transition: {
       delay: i * 0.08,

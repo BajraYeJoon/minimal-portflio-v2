@@ -21,7 +21,7 @@ export default function WordPullUp({
       )}
     >
       {words.map((word, index) => (
-        <motion.div
+        <motion.span
           key={`word-${index + 1}`}
           variants={letterPullUpVariant}
           initial="initial"
@@ -31,7 +31,7 @@ export default function WordPullUp({
           className="inline-block"
         >
           {word}
-        </motion.div>
+        </motion.span>
       ))}
     </h2>
   );

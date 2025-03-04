@@ -16,13 +16,13 @@ export function Hero() {
   ];
 
   return (
-    <section className="common-padding relative min-h-[70vh] overflow-hidden pt-[240px] pb-[80px] 2xl:pt-[180px]">
+    <section className="common-padding relative overflow-hidden pt-[40px] pb-14 lg:min-h-[70vh] lg:pt-[100px] lg:pb-[80px] 2xl:pt-[180px]">
       <motion.div
         variants={containerRevealVariants}
         initial="hidden"
         animate="show"
         style={{ y: parallaxY }}
-        className="flex w-full flex-col gap-2 *:uppercase *:will-change-auto lg:*:leading-[7rem] 2xl:*:leading-[9rem]"
+        className="flex w-full flex-col gap-2 *:leading-[3.5rem] *:uppercase *:will-change-auto lg:*:leading-[7rem] 2xl:*:leading-[9rem]"
       >
         {titles.map((title, index) => (
           <AnimatedTitle
