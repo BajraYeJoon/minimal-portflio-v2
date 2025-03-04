@@ -14,6 +14,11 @@ export function generateMetadata({ title, description, path }: MetadataProps) {
   return [
     { title: fullTitle },
     { name: 'description', content: description },
+    {
+      name: 'keywords',
+      content:
+        'Binaya Bajracharya, Frontend Developer, Web Developer, JavaScript, React, Next.js, Tailwind CSS, Framer Motion, Sanity, Portfolio',
+    },
     // OpenGraph
     { property: 'og:title', content: fullTitle },
     { property: 'og:description', content: description },

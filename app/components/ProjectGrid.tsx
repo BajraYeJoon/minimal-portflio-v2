@@ -41,8 +41,10 @@ export default function ProjectGrid({
             >
               <img
                 src={imagePath}
-                alt=""
+                alt={`Project Images ${imagePath.split('/').pop()}`}
                 className="h-full w-full object-cover"
+                aria-hidden="true"
+                title={`Project Images ${imagePath.split('/').pop()}`}
               />
             </motion.div>
           ))}
@@ -62,8 +64,10 @@ export default function ProjectGrid({
             >
               <img
                 src={imagePath}
-                alt=""
+                alt={`Project Images ${imagePath.split('/').pop()}`}
                 className="h-full w-full object-cover"
+                aria-hidden="true"
+                title={`Project Images ${imagePath.split('/').pop()}`}
               />
             </motion.div>
           ))}
@@ -83,8 +87,10 @@ export default function ProjectGrid({
             >
               <img
                 src={imagePath}
-                alt=""
+                alt={`Project Images ${imagePath.split('/').pop()}`}
                 className="h-full w-full object-cover"
+                aria-hidden="true"
+                title={`Project Images ${imagePath.split('/').pop()}`}
               />
             </motion.div>
           ))}

@@ -34,13 +34,14 @@ export default function FeaturedWorkCard({
           src={work.image}
           alt={work.title}
           className="animated-transition h-full w-full scale-105 object-cover group-hover:scale-100"
+          title={`Project Images ${work.title}`}
         />
       </div>
 
       <div className="flex flex-col gap-0.5">
         <div className="relative flex items-center justify-between overflow-hidden">
           <AnimatedTypography
-            component="h4"
+            component="h3"
             className="text-p-sm md:text-project"
             projectPadding={false}
           >

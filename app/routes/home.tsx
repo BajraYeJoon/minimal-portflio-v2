@@ -77,8 +77,10 @@ export async function loader(): Promise<LoaderData> {
 
 export function meta() {
   return generateMetadata({
-    title: 'Binaya Bajracharya Enhanced portfolio website',
-    description: 'Binaya Bajracharya Enhanced portfolio website',
+    title: 'Binaya Bajracharya - Frontend Developer | React | Next.js',
+    description:
+      'Expert frontend developer specializing in modern web applications, responsive design, and user experience.  Available for freelance projects.',
+
     path: '/',
   });
 }

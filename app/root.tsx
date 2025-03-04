@@ -43,6 +43,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
           async
           src={`https://www.googletagmanager.com/gtag/js?id=GTM-M7D468GP`}
         />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-02WY179Y2M"
+        />
+        <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+          dangerouslySetInnerHTML={{
+            __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-02WY179Y2M', {
+        page_path: window.location.pathname,
+        });
+    `,
+          }}
+        />
         <Links />
       </head>
       <body className="bg-backgroundColor text-surface mx-auto font-medium select-none">
@@ -90,11 +107,11 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
+    <main className="container mx-auto p-4 pt-16">
       <h1>{message}</h1>
       <p>{details}</p>
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
+        <pre className="w-full overflow-x-auto p-4">
           <code>{stack}</code>
         </pre>
       )}
