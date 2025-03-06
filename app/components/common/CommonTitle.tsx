@@ -47,6 +47,7 @@ export const CommonTitle: React.FC<CommonTitleProps> = ({
   align = 'left',
   id,
   as,
+  ...others
 }) => {
   const Component = as ?? (variant === 'mainHeading' ? 'h2' : 'p');
 
@@ -58,11 +59,7 @@ export const CommonTitle: React.FC<CommonTitleProps> = ({
   );
 
   return (
-    <Component
-      id={id}
-      aria-level={Number(Component.match(/h(\d)/)?.[1])}
-      className={baseStyles}
-    >
+    <Component id={id} {...others} className={baseStyles}>
       {children}
     </Component>
   );
