@@ -24,7 +24,7 @@ export function DesktopNav() {
 
       <div className="z-10">
         <AnimatedTypography
-          className="text-p-base uppercase"
+          className="lg:text-p-md uppercase"
           dividerDirection="center"
           component="h1"
           to="/"

@@ -17,7 +17,7 @@ export default function FeaturedWorkCard({
 
   return (
     <Link
-      to={'/'}
+      to={work?.link}
       className={cn(
         'group flex flex-col gap-6',
         isLarge && 'md:col-span-2 md:row-span-2',
@@ -47,7 +47,11 @@ export default function FeaturedWorkCard({
           >
             {work.title}
           </AnimatedTypography>
-          <Button variant="link" size="link" className="hidden sm:block">
+          <Button
+            variant="link"
+            size="link"
+            className="hidden gap-2 sm:inline-flex"
+          >
             View Project
           </Button>
         </div>

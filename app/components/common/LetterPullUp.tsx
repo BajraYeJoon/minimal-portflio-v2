@@ -11,8 +11,6 @@ export default function WordPullUp({
   text = '',
   className = '',
 }: Readonly<WordPullUpProps>) {
-  const words = text.split(' ');
-
   return (
     <h2
       className={cn(
@@ -20,19 +18,15 @@ export default function WordPullUp({
         className,
       )}
     >
-      {words.map((word, index) => (
-        <motion.span
-          key={`word-${index + 1}`}
-          variants={letterPullUpVariant}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, margin: '-100px' }}
-          custom={index}
-          className="inline-block"
-        >
-          {word}
-        </motion.span>
-      ))}
+      <motion.span
+        variants={letterPullUpVariant}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true, margin: '-100px' }}
+        className="inline-block"
+      >
+        {text}
+      </motion.span>
     </h2>
   );
 }
