@@ -11,7 +11,7 @@ export default function Services({
 }: Readonly<ServicesProps>) {
   return (
     <section
-      className="border-surface common-padding flex flex-col gap-20 border-b-2 py-20"
+      className="border-surface common-padding flex flex-col gap-14 border-b-2 py-20 md:gap-20"
       id="services"
     >
       <SectionHeader smallHeading="Services" title="What I Do" />

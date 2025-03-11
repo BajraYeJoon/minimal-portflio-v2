@@ -50,7 +50,6 @@ const itemVariants = {
 };
 
 export function MobileNav({ isOpen, onToggle }: Readonly<MobileNavProps>) {
-  // Add useEffect to control body scroll
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';

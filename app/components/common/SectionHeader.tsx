@@ -1,5 +1,4 @@
 import { cn } from '~/utils/cn';
-import LetterPullUp from './LetterPullUp';
 
 interface SectionHeaderProps {
   title?: string;
@@ -18,25 +17,35 @@ export default function SectionHeader({
 }: Readonly<SectionHeaderProps>) {
   return (
     <div className={cn('flex flex-col gap-3 uppercase', className)}>
-      <h2
+      <h3
         className={cn(
           'text-link lg:text-small before:bg-surface items-center justify-center tracking-wide before:mr-2 before:inline-flex before:size-3 before:rounded-full',
           subtitleClassName,
         )}
       >
         {smallHeading}
-      </h2>
+      </h3>
 
       {title && (
-        <LetterPullUp
-          text={title}
+        <h2
           className={cn(
             'text-heading-4 lg:text-heading-2',
             'leading-tight tracking-tight',
             'max-w-full',
             titleClassName,
           )}
-        />
+        >
+          {title}
+        </h2>
+        // <LetterPullUp
+        //   text={title}
+        //   className={cn(
+        //     'text-heading-4 lg:text-heading-2',
+        //     'leading-tight tracking-tight',
+        //     'max-w-full',
+        //     titleClassName,
+        //   )}
+        // />
       )}
     </div>
   );
