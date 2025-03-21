@@ -48,6 +48,7 @@ export default function FeaturedWorkCard({
             {work.title}
           </AnimatedTypography>
           <Button
+            href={work.link}
             variant="link"
             size="link"
             className="hidden gap-2 sm:inline-flex"
