@@ -39,11 +39,9 @@ const itemVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.3,
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 100,
       damping: 40,
-      ease: 'easeIn',
     },
   },
 };
@@ -52,10 +50,13 @@ export default function AboutMeProjectReveal() {
   const { scrollYProgress } = useScroll();
   const { isMobile } = useWindow();
 
-  const contentScale = useTransform(scrollYProgress, [0, 0.15], [1.69, 1]);
-  const row1Y = useTransform(scrollYProgress, [0, 0.25], [90, -40]);
-  const row2Y = useTransform(scrollYProgress, [0, 0.25], [-60, 80]);
-  const row3Y = useTransform(scrollYProgress, [0, 0.25], [90, -40]);
+  // Scale starts at 1.5x and scales down to 1.0 (normal) on scroll
+  const contentScale = useTransform(scrollYProgress, [0, 0.3], [1.5, 0.8]);
+
+  // Left and right columns move up, center column moves down
+  const row1Y = useTransform(scrollYProgress, [0, 0.3], [0, -120]);
+  const row2Y = useTransform(scrollYProgress, [0, 0.3], [0, 120]);
+  const row3Y = useTransform(scrollYProgress, [0, 0.3], [0, -120]);
 
   return (
     <motion.section

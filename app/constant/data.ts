@@ -5,7 +5,7 @@ import type { Navigation, ServiceCategory } from '~/types/types';
 export const navigation: Navigation[] = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
-  { name: 'Services', path: '/services' },
+  { name: 'Work', path: '/work' },
   { name: 'Contact', path: '/contact' },
 ] as const;
 

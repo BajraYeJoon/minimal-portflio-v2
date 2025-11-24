@@ -23,14 +23,18 @@ export default function LenisProvider({
     return () => cancelFrame(update);
   }, []);
 
+  if (typeof window === 'undefined') {
+    return <>{children}</>;
+  }
+
   return (
     <ReactLenis
       root
       options={{
-        duration: isMobile ? 0.8 : 1.1,
-        easing: isMobile ? (t: number) => t : (t: number) => 1 - (1 - t) ** 3, // Cubic easing for desktop
+        duration: isMobile ? 0.8 : 1,
+        easing: isMobile ? (t: number) => t : (t: number) => 1 - (1 - t) ** 7, // Cubic easing for desktop
         smoothWheel: !isMobile,
-        wheelMultiplier: isMobile ? 1 : 0.8,
+        wheelMultiplier: isMobile ? 1 : 0.9,
         syncTouch: true,
         syncTouchLerp: isMobile ? 0.04 : 0.08,
         touchMultiplier: isMobile ? 1 : 1.5,

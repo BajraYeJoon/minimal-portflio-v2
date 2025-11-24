@@ -49,25 +49,30 @@ const getButtonClasses = ({
 };
 
 const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
-  ({
-    className = 'flex gap-3 w-fit relative items-center justify-center',
-    variant = 'default',
-    size = 'default',
-    showArrow = true,
-    children,
-    href,
-    ...props
-  }) => {
-    return (
-      <Link
-        to={'/'}
-        className={getButtonClasses({
-          variant,
-          size,
-          className,
-        })}
-        {...props}
-      >
+  (
+    {
+      className = 'flex gap-3 w-fit relative items-center justify-center',
+      variant = 'default',
+      size = 'default',
+      showArrow = true,
+      children,
+      href,
+      ...props
+    },
+    ref,
+  ) => {
+    const commonProps = {
+      className: getButtonClasses({
+        variant,
+        size,
+        className,
+      }),
+      ...props,
+      ref,
+    };
+
+    const content = (
+      <>
         <AnimatedTypography
           component="span"
           showDivider={variant === 'link'}
@@ -76,7 +81,21 @@ const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
           {children}
         </AnimatedTypography>
         {showArrow && <ButtonArrow variant={variant} />}
-      </Link>
+      </>
+    );
+
+    if (href) {
+      return (
+        <Link to={href} {...commonProps}>
+          {content}
+        </Link>
+      );
+    }
+
+    return (
+      <div {...(commonProps as React.HTMLAttributes<HTMLDivElement>)}>
+        {content}
+      </div>
     );
   },
 );

@@ -9,14 +9,13 @@ export function Hero() {
   const { scrollY } = useScroll();
   const parallaxY = useTransform(scrollY, [0, 800], [0, 500]);
 
-  const titles = [
-    "Hi, I'm Binaya Bajra",
-    'Frontend interface',
-    '& Web Developer',
-  ];
+  const titles = ["I'm Binaya Bajra", 'Building Modern', 'Web Applications'];
 
   return (
-    <section className="common-padding relative overflow-hidden pt-[40px] pb-14 lg:min-h-[70vh] lg:pt-[100px] lg:pb-[80px] 2xl:pt-[180px]">
+    <section
+      id="home"
+      className="common-padding relative overflow-hidden pt-[40px] pb-14 lg:min-h-[70vh] lg:pt-[100px] lg:pb-[80px] 2xl:pt-[180px]"
+    >
       <motion.div
         variants={containerRevealVariants}
         initial="hidden"

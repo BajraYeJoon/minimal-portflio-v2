@@ -1,4 +1,6 @@
 import type { SanityDocument } from '@sanity/client';
+import React from 'react';
+import { Await } from 'react-router';
 import CTA from '~/pages/CTA';
 import FeaturedWorks from '~/pages/FeaturedWorks';
 import { Hero } from '~/pages/Hero';
@@ -23,56 +25,18 @@ interface LoaderData {
   };
 }
 
-export async function loader(): Promise<LoaderData> {
-  const data: LoaderData = {
-    testimonials: [],
-    works: [],
-    serviceCategories: [],
+export function loader() {
+  const testimonials = client.fetch<SanityDocument[]>(TESTIMONIALS_QUERY);
+  const works = client.fetch<SanityDocument[]>(FEATURED_WORKS_QUERY);
+  const serviceCategories = client.fetch<SanityDocument[]>(
+    SERVICE_CATEGORIES_QUERY,
+  );
+
+  return {
+    testimonials,
+    works,
+    serviceCategories,
   };
-
-  try {
-    const [testimonialsResult, worksResult, serviceCategoriesResult] =
-      await Promise.allSettled([
-        client.fetch<SanityDocument[]>(TESTIMONIALS_QUERY),
-        client.fetch<SanityDocument[]>(FEATURED_WORKS_QUERY),
-        client.fetch<SanityDocument[]>(SERVICE_CATEGORIES_QUERY),
-      ]);
-
-    if (testimonialsResult.status === 'fulfilled') {
-      data.testimonials = testimonialsResult.value;
-    } else {
-      data.errors = {
-        ...data.errors,
-        testimonials: 'Failed to load testimonials',
-      };
-      console.error('Testimonials error:', testimonialsResult.reason);
-    }
-
-    if (worksResult.status === 'fulfilled') {
-      data.works = worksResult.value;
-    } else {
-      data.errors = { ...data.errors, works: 'Failed to load works' };
-      console.error('Works error:', worksResult.reason);
-    }
-
-    if (serviceCategoriesResult.status === 'fulfilled') {
-      data.serviceCategories = serviceCategoriesResult.value;
-    } else {
-      data.errors = {
-        ...data.errors,
-        services: 'Failed to load service categories',
-      };
-      console.error(
-        'Service categories error:',
-        serviceCategoriesResult.reason,
-      );
-    }
-
-    return data;
-  } catch (error) {
-    console.error('Loader error:', error);
-    throw new Response('Error loading data', { status: 500 });
-  }
 }
 
 export function meta() {
@@ -85,16 +49,32 @@ export function meta() {
   });
 }
 
-export default function Home({ loaderData }: Readonly<Route.ComponentProps>) {
-  const { testimonials, works, serviceCategories } = loaderData as LoaderData;
+export default function Home({ loaderData }: Route.ComponentProps) {
+  const { testimonials, works, serviceCategories } = loaderData;
 
   return (
     <>
       <Hero />
       <AboutMeProjectReveal />
-      <FeaturedWorks works={works} />
-      <Services serviceCategories={serviceCategories} />
-      <Testimonials testimonials={testimonials} />
+      <React.Suspense fallback={<div>Loading works...</div>}>
+        <Await resolve={works}>
+          {(resolvedWorks) => <FeaturedWorks works={resolvedWorks} />}
+        </Await>
+      </React.Suspense>
+      <React.Suspense fallback={<div>Loading services...</div>}>
+        <Await resolve={serviceCategories}>
+          {(resolvedServices) => (
+            <Services serviceCategories={resolvedServices} />
+          )}
+        </Await>
+      </React.Suspense>
+      <React.Suspense fallback={<div>Loading testimonials...</div>}>
+        <Await resolve={testimonials}>
+          {(resolvedTestimonials) => (
+            <Testimonials testimonials={resolvedTestimonials} />
+          )}
+        </Await>
+      </React.Suspense>
       <CTA />
     </>
   );

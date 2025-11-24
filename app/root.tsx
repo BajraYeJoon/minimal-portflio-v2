@@ -7,6 +7,8 @@ import {
   isRouteErrorResponse,
 } from 'react-router';
 
+import { AnimatePresence } from 'motion/react';
+import { useLocation } from 'react-router';
 import type { Route } from './+types/root';
 import './app.css';
 import NotFound from './components/common/NotFound';
@@ -81,11 +83,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+// ...
+
 export default function App() {
+  const location = useLocation();
+
   return (
     <LenisProvider>
       <Navbar />
-      <Outlet />
+      <AnimatePresence mode="wait">
+        <Outlet key={location.pathname} />
+      </AnimatePresence>
       <Footer />
     </LenisProvider>
   );
