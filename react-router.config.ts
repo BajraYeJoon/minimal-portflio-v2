@@ -7,5 +7,5 @@ export default {
   // async prerender() {
   //   return ['/', '/about', '/work', '/contact'];
   // },
-  prerender: ['/', '/about', '/work', '/contact'],
+  // prerender: ['/', '/about', '/work', '/contact'],
 } satisfies Config;
