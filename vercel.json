@@ -1,8 +1,7 @@
 {
   "functions": {
     "app/**/*.tsx": {
-      "memory": 1024,
-      "timeout": 30
+      "memory": 1024
     }
   },
   "build": {
