@@ -1,4 +1,5 @@
 import type { Config } from '@react-router/dev/config';
+import { vercelPreset } from '@vercel/react-router/vite';
 
 export default {
   // Config options...
@@ -8,4 +9,5 @@ export default {
   //   return ['/', '/about', '/work', '/contact'];
   // },
   // prerender: ['/', '/about', '/work', '/contact'],
+  presets: [vercelPreset()],
 } satisfies Config;

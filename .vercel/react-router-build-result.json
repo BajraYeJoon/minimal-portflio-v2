@@ -1,0 +1,184 @@
+{
+  "buildManifest": {
+    "serverBundles": {
+      "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0": {
+        "id": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+        "file": "build/server/nodejs_eyJydW50aW1lIjoibm9kZWpzIn0/index.js",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    },
+    "routeIdToServerBundleId": {
+      "routes/home": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/about": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/work-redirect": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/contact": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/misc/[robots.txt]": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/misc/sitemap[.]xml": "nodejs_eyJydW50aW1lIjoibm9kZWpzIn0"
+    },
+    "routes": {
+      "root": {
+        "id": "root",
+        "file": "app/root.tsx",
+        "path": "",
+        "config": {}
+      },
+      "routes/home": {
+        "id": "routes/home",
+        "parentId": "root",
+        "file": "app/routes/home.tsx",
+        "index": true,
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/about": {
+        "id": "routes/about",
+        "parentId": "root",
+        "file": "app/routes/about.tsx",
+        "path": "about",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/work-redirect": {
+        "id": "routes/work-redirect",
+        "parentId": "root",
+        "file": "app/routes/work-redirect.tsx",
+        "path": "work",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/contact": {
+        "id": "routes/contact",
+        "parentId": "root",
+        "file": "app/routes/contact.tsx",
+        "path": "contact",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/misc/[robots.txt]": {
+        "id": "routes/misc/[robots.txt]",
+        "parentId": "root",
+        "file": "app/routes/misc/[robots.txt].tsx",
+        "path": "robots.txt",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/misc/sitemap[.]xml": {
+        "id": "routes/misc/sitemap[.]xml",
+        "parentId": "root",
+        "file": "app/routes/misc/sitemap[.]xml.tsx",
+        "path": "sitemap.xml",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    }
+  },
+  "reactRouterConfig": {
+    "appDirectory": "/home/bajra/Documents/minimal-portflio-v2/app",
+    "basename": "/",
+    "buildDirectory": "/home/bajra/Documents/minimal-portflio-v2/build",
+    "future": {
+      "unstable_customRouteDiscovery": false,
+      "unstable_enableNodeReadableStream": false,
+      "unstable_optimizeDeps": false
+    },
+    "routes": {
+      "root": {
+        "id": "root",
+        "file": "root.tsx",
+        "path": ""
+      },
+      "routes/home": {
+        "id": "routes/home",
+        "parentId": "root",
+        "file": "routes/home.tsx",
+        "index": true
+      },
+      "routes/about": {
+        "id": "routes/about",
+        "parentId": "root",
+        "file": "routes/about.tsx",
+        "path": "about"
+      },
+      "routes/work-redirect": {
+        "id": "routes/work-redirect",
+        "parentId": "root",
+        "file": "routes/work-redirect.tsx",
+        "path": "work"
+      },
+      "routes/contact": {
+        "id": "routes/contact",
+        "parentId": "root",
+        "file": "routes/contact.tsx",
+        "path": "contact"
+      },
+      "routes/misc/[robots.txt]": {
+        "id": "routes/misc/[robots.txt]",
+        "parentId": "root",
+        "file": "routes/misc/[robots.txt].tsx",
+        "path": "robots.txt"
+      },
+      "routes/misc/sitemap[.]xml": {
+        "id": "routes/misc/sitemap[.]xml",
+        "parentId": "root",
+        "file": "routes/misc/sitemap[.]xml.tsx",
+        "path": "sitemap.xml"
+      }
+    },
+    "routeDiscovery": {
+      "mode": "lazy",
+      "manifestPath": "/__manifest"
+    },
+    "serverBuildFile": "index.js",
+    "serverModuleFormat": "esm",
+    "ssr": true,
+    "splitRouteModules": true,
+    "subResourceIntegrity": false,
+    "allowedActionOrigins": false,
+    "unstable_routeConfig": [
+      {
+        "id": "root",
+        "path": "",
+        "file": "root.tsx",
+        "children": [
+          {
+            "file": "routes/home.tsx",
+            "index": true
+          },
+          {
+            "file": "routes/about.tsx",
+            "path": "about"
+          },
+          {
+            "file": "routes/work-redirect.tsx",
+            "path": "work"
+          },
+          {
+            "file": "routes/contact.tsx",
+            "path": "contact"
+          },
+          {
+            "file": "routes/misc/[robots.txt].tsx",
+            "path": "robots.txt"
+          },
+          {
+            "file": "routes/misc/sitemap[.]xml.tsx",
+            "path": "sitemap.xml"
+          }
+        ]
+      }
+    ]
+  },
+  "viteConfig": {
+    "build": {
+      "assetsDir": "assets"
+    }
+  }
+}
