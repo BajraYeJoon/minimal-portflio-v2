@@ -1,9 +1,22 @@
 import { createClient } from '@sanity/client';
 
+/**
+ * Resolve config from Vite's build-time env (browser + SSR) and fall back to
+ * `process.env` so the same module also works in Node/Vercel serverless.
+ */
+function readEnv(key: string, fallback: string): string {
+  const viteEnv = (import.meta as unknown as { env?: Record<string, string> })
+    .env;
+  const nodeEnv =
+    typeof process !== 'undefined' ? (process.env?.[key] as string) : undefined;
+
+  return viteEnv?.[key] || nodeEnv || fallback;
+}
+
 export const client = createClient({
-  projectId: process.env.VITE_SANITY_PROJECT_ID || 'z68c4dv3',
-  dataset: process.env.VITE_SANITY_DATASET || 'production',
-  apiVersion: process.env.VITE_SANITY_API_VERSION || '2025-02-01',
+  projectId: readEnv('VITE_SANITY_PROJECT_ID', 'z68c4dv3'),
+  dataset: readEnv('VITE_SANITY_DATASET', 'production'),
+  apiVersion: readEnv('VITE_SANITY_API_VERSION', '2025-02-01'),
   useCdn: true,
 });
 

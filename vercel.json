@@ -1,9 +1,0 @@
-{
-  "build": {
-    "env": {
-      "VITE_SANITY_PROJECT_ID": "z68c4dv3",
-      "VITE_SANITY_DATASET": "production",
-      "VITE_SANITY_API_VERSION": "2025-02-01"
-    }
-  }
-}
