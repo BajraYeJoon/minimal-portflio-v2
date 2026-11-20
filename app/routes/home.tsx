@@ -1,81 +1,65 @@
-import type { SanityDocument } from '@sanity/client';
-import React from 'react';
-import { Await } from 'react-router';
-import CTA from '~/pages/CTA';
-import FeaturedWorks from '~/pages/FeaturedWorks';
-import { Hero } from '~/pages/Hero';
-import AboutMeProjectReveal from '~/pages/ProjectReveal';
-import Services from '~/pages/Services';
-import Testimonials from '~/pages/Testimonials';
-import { client } from '~/sanity/client';
-import { FEATURED_WORKS_QUERY } from '~/sanity/queries/featured-works';
-import { SERVICE_CATEGORIES_QUERY } from '~/sanity/queries/service-categories';
-import { TESTIMONIALS_QUERY } from '~/sanity/queries/testimonials';
-import { generateMetadata } from '~/utils/generateMetadata';
-import type { Route } from './+types/home';
+import { Marquee } from '~/components/ui/Marquee';
+import { Statement } from '~/features/about/Statement';
+import { ContactCta } from '~/features/contact/ContactCta';
+import { Hero } from '~/features/hero/Hero';
+import { Services } from '~/features/services/Services';
+import { Testimonials } from '~/features/testimonials/Testimonials';
+import { WorkWall } from '~/features/work/WorkWall';
+import { safeFetch } from '~/lib/sanity/client';
+import {
+  ALL_WORKS_QUERY,
+  SERVICE_CATEGORIES_QUERY,
+  TESTIMONIALS_QUERY,
+} from '~/lib/sanity/queries';
+import { mergeWorks } from '~/lib/sanity/works';
+import { generateMetadata } from '~/lib/seo/metadata';
+import type { ServiceCategory, Testimonial, Work } from '~/types';
 
-interface LoaderData {
-  testimonials: SanityDocument[];
-  works: SanityDocument[];
-  serviceCategories: SanityDocument[];
-  errors?: {
-    testimonials?: string;
-    works?: string;
-    services?: string;
-  };
-}
+const TICKER = [
+  'React',
+  'TypeScript',
+  'Design systems',
+  'Accessibility',
+  'Sanity',
+  'Motion',
+  'Performance',
+];
 
-export function loader() {
-  const testimonials = client.fetch<SanityDocument[]>(TESTIMONIALS_QUERY);
-  const works = client.fetch<SanityDocument[]>(FEATURED_WORKS_QUERY);
-  const serviceCategories = client.fetch<SanityDocument[]>(
-    SERVICE_CATEGORIES_QUERY,
-  );
+export async function loader() {
+  const [works, categories, testimonials] = await Promise.all([
+    safeFetch<Work[]>(ALL_WORKS_QUERY, []),
+    safeFetch<ServiceCategory[]>(SERVICE_CATEGORIES_QUERY, []),
+    safeFetch<Testimonial[]>(TESTIMONIALS_QUERY, []),
+  ]);
 
-  return {
-    testimonials,
-    works,
-    serviceCategories,
-  };
+  return { works: mergeWorks(works), categories, testimonials };
 }
 
 export function meta() {
   return generateMetadata({
-    title: 'Binaya Bajracharya - Frontend Developer | React | Next.js',
+    title: 'Binaya Bajracharya — Frontend Developer in Kathmandu',
     description:
-      'Expert frontend developer specializing in modern web applications, responsive design, and user experience.  Available for freelance projects.',
-
+      'Frontend developer building fast, accessible React interfaces with TypeScript and Tailwind CSS. 2+ years across product and agency teams. Open to full-time roles and freelance work.',
     path: '/',
   });
 }
 
-export default function Home({ loaderData }: Route.ComponentProps) {
-  const { testimonials, works, serviceCategories } = loaderData;
+export default function Home({
+  loaderData,
+}: {
+  loaderData: Awaited<ReturnType<typeof loader>>;
+}) {
+  const { works, categories, testimonials } = loaderData;
 
   return (
     <>
-      <Hero />
-      <AboutMeProjectReveal />
-      <React.Suspense fallback={<div>Loading works...</div>}>
-        <Await resolve={works}>
-          {(resolvedWorks) => <FeaturedWorks works={resolvedWorks} />}
-        </Await>
-      </React.Suspense>
-      <React.Suspense fallback={<div>Loading services...</div>}>
-        <Await resolve={serviceCategories}>
-          {(resolvedServices) => (
-            <Services serviceCategories={resolvedServices} />
-          )}
-        </Await>
-      </React.Suspense>
-      <React.Suspense fallback={<div>Loading testimonials...</div>}>
-        <Await resolve={testimonials}>
-          {(resolvedTestimonials) => (
-            <Testimonials testimonials={resolvedTestimonials} />
-          )}
-        </Await>
-      </React.Suspense>
-      <CTA />
+      <Hero work={works[0]} />
+      <Marquee items={TICKER} />
+      <WorkWall works={works} />
+      <Statement />
+      <Services categories={categories} />
+      <Testimonials testimonials={testimonials} />
+      <ContactCta />
     </>
   );
 }

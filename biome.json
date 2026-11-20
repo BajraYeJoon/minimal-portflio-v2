@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.6.8/schema.json",
   "vcs": {
     "enabled": false,
     "clientKind": "git",
@@ -7,34 +7,36 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": [
-      "node_modules/**",
-      "build/**",
-      "dist/**",
-      ".react-router/**",
-      "coverage/**"
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/build",
+      "!**/dist",
+      "!**/.react-router",
+      "!**/coverage",
+      "!**/.netlify",
+      "!studio-portfolio-website"
     ]
   },
 
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
-    "ignore": [],
+    "includes": ["**"],
     "attributePosition": "auto",
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 80,
     "lineEnding": "lf"
   },
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
+  "css": { "parser": { "tailwindDirectives": true } },
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "nursery": {
-        "useSortedClasses": "off"
+        "useTailwindSortedClasses": "off"
       },
       "correctness": {
         "noUnusedImports": "error"
@@ -65,7 +67,7 @@
 
   "overrides": [
     {
-      "include": ["*.json"],
+      "includes": ["**/*.json"],
       "formatter": {
         "indentWidth": 2
       }

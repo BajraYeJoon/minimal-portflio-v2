@@ -1,5 +1,11 @@
+import { experienceType } from './experienceTypes';
 import { serviceCategoryType } from './serviceCategoryTypes';
 import { testimonialType } from './testimonialTypes';
 import { workType } from './workTypes';
 
-export const schemaTypes = [testimonialType, workType, serviceCategoryType];
+export const schemaTypes = [
+  testimonialType,
+  workType,
+  serviceCategoryType,
+  experienceType,
+];

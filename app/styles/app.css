@@ -1,0 +1,404 @@
+@import "tailwindcss";
+
+@theme {
+  /* Typefaces ---------------------------------------------------------- */
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Anton", "Arial Narrow", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:
+    "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Monument scale — leading leaves room for Anton's tall caps -------- */
+  --text-mega: clamp(2.6rem, 12.5vw, 11rem);
+  --text-mega--line-height: 0.9;
+  --text-mega--letter-spacing: -0.015em;
+  --text-mega--font-weight: 400;
+
+  --text-display: clamp(2.5rem, 7.4vw, 6.25rem);
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.015em;
+  --text-display--font-weight: 400;
+
+  --text-title: clamp(1.9rem, 3.8vw, 3.25rem);
+  --text-title--line-height: 1.02;
+  --text-title--letter-spacing: -0.02em;
+  --text-title--font-weight: 400;
+
+  --text-heading: clamp(1.375rem, 2vw, 1.875rem);
+  --text-heading--line-height: 1.2;
+  --text-heading--letter-spacing: -0.02em;
+
+  --text-lead: clamp(1.1875rem, 1.5vw, 1.4375rem);
+  --text-lead--line-height: 1.55;
+  --text-lead--letter-spacing: -0.012em;
+
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.65;
+  --text-body--letter-spacing: -0.008em;
+
+  --text-small: 0.9375rem;
+  --text-small--line-height: 1.6;
+
+  --text-micro: 0.8125rem;
+  --text-micro--line-height: 1.2;
+  --text-micro--letter-spacing: 0.12em;
+  --text-micro--font-weight: 500;
+
+  /* Monochrome + ember -------------------------------------------------- */
+  --color-onyx: #101012;
+  --color-obsidian: #161618;
+  --color-graphite: #3c3a3e;
+  --color-stone: #7b7a7c;
+  --color-ash: #a2a2a2;
+  --color-silver: #c9c7cc;
+  --color-paper: #f6f5f3;
+  --color-fog: #f1f1f1;
+  --color-ember: #ff6436;
+  --color-hairline: rgb(201 199 204 / 0.16);
+  --color-hairline-strong: rgb(201 199 204 / 0.3);
+
+  /* Rhythm -------------------------------------------------------------- */
+  --spacing-section: clamp(4.5rem, 9vw, 8rem);
+  --spacing-gutter: clamp(1.25rem, 4vw, 2.5rem);
+
+  /* Motion -------------------------------------------------------------- */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out-expo: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scrollbar-gutter: stable;
+  }
+
+  /* Lenis base rules so the page keeps its natural height -------------- */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    @apply bg-onyx text-paper font-sans text-body antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 500;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-ember);
+    color: var(--color-onyx);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ember);
+    outline-offset: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-graphite);
+    border: 3px solid var(--color-onyx);
+    border-radius: 999px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: var(--spacing-gutter);
+  }
+
+  .hairline {
+    border-top: 1px solid var(--color-hairline);
+  }
+
+  .skip-link {
+    position: fixed;
+    top: -100%;
+    left: 1rem;
+    z-index: 130;
+    border-radius: 999px;
+    background-color: var(--color-paper);
+    color: var(--color-onyx);
+    padding: 0.75rem 1.25rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-micro);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .skip-link:focus-visible {
+    top: 1rem;
+  }
+
+  /* Monument display type with the fade from shadow into light -------- */
+  .display-fade {
+    color: var(--color-paper);
+    text-transform: uppercase;
+    font-family: var(--font-display);
+    line-height: 0.92;
+    letter-spacing: -0.015em;
+    padding-bottom: 0.04em;
+  }
+
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .display-fade {
+      background-image: linear-gradient(
+        180deg,
+        #6b696e 0%,
+        #9c9aa0 34%,
+        #d9d7dc 68%,
+        #ffffff 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  /* Line mask with breathing room, so glyphs never get clipped -------- */
+  .hero-mask {
+    display: block;
+    overflow: hidden;
+    padding-block: 0.08em;
+    margin-block: -0.08em;
+  }
+
+  /* Drawn underline for editorial links ------------------------------- */
+  .link-draw {
+    position: relative;
+    display: inline-block;
+  }
+
+  .link-draw::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: -0.15em;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.45s var(--ease-out-expo);
+  }
+
+  .link-draw:hover::after,
+  .link-draw:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Two-line roll on hover -------------------------------------------- */
+  .text-roll {
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+    line-height: 1.25;
+  }
+
+  .text-roll > span {
+    display: block;
+    transition: transform 0.5s var(--ease-out-expo);
+  }
+
+  .text-roll > span:last-child {
+    position: absolute;
+    inset: 0;
+    transform: translateY(100%);
+  }
+
+  .text-roll:hover > span:first-child,
+  a:hover .text-roll > span:first-child,
+  button:hover .text-roll > span:first-child {
+    transform: translateY(-100%);
+  }
+
+  .text-roll:hover > span:last-child,
+  a:hover .text-roll > span:last-child,
+  button:hover .text-roll > span:last-child {
+    transform: translateY(0);
+  }
+
+  /* Infinite marquee (GSAP drives it, CSS is the no-JS fallback) ------ */
+  .marquee-mask {
+    overflow: hidden;
+  }
+
+  .marquee {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: marquee-scroll 42s linear infinite;
+  }
+
+  .marquee-mask:hover .marquee {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee-scroll {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Scroll cue --------------------------------------------------------- */
+  .scroll-cue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .scroll-cue::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 2rem;
+    background-color: var(--color-ember);
+    transform-origin: top center;
+    animation: cue-pulse 2.2s var(--ease-in-out-expo) infinite;
+  }
+
+  @keyframes cue-pulse {
+    0%,
+    100% {
+      transform: scaleY(0.25);
+      opacity: 0.35;
+    }
+    50% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+
+  /* Film grain --------------------------------------------------------- */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Load curtain: lifts itself even if JS never runs -------------------- */
+  .intro-curtain {
+    position: fixed;
+    inset: 0;
+    z-index: 110;
+    display: grid;
+    place-items: center;
+    background-color: var(--color-onyx);
+    pointer-events: none;
+    animation: intro-lift 750ms var(--ease-in-out-expo) 450ms forwards;
+  }
+
+  .intro-curtain__mark {
+    animation: intro-fade 400ms ease-out 200ms forwards;
+  }
+
+  @keyframes intro-lift {
+    to {
+      transform: translateY(-101%);
+    }
+  }
+
+  @keyframes intro-fade {
+    to {
+      opacity: 0;
+      transform: translateY(-0.4rem);
+    }
+  }
+
+  /* Custom cursor: native pointer is hidden only after JS mounts ------ */
+  @media (pointer: fine) {
+    html.cursor-none,
+    html.cursor-none body,
+    html.cursor-none a,
+    html.cursor-none button,
+    html.cursor-none [role="button"] {
+      cursor: none;
+    }
+
+    html.cursor-none input,
+    html.cursor-none textarea,
+    html.cursor-none select {
+      cursor: auto;
+    }
+  }
+
+  .cursor-dot,
+  .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 140;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+  }
+
+  .cursor-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background-color: var(--color-ember);
+    opacity: 0;
+  }
+
+  .cursor-ring {
+    opacity: 0;
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 999px;
+    border: 1px solid rgb(201 199 204 / 0.45);
+    color: var(--color-onyx);
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .cursor-ring[data-active="true"] {
+    border-color: transparent;
+    background-color: var(--color-paper);
+  }
+}

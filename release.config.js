@@ -1,3 +1,4 @@
+// biome-ignore-all lint/suspicious/noTemplateCurlyInString: semantic-release substitutes these placeholders
 module.exports = {
   branches: ['master'], // Adjust branch if needed
   plugins: [

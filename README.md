@@ -61,6 +61,7 @@ This project follows conventional commits specification. Commit messages should 
 ```
 
 Types:
+
 - feat: New feature
 - fix: Bug fix
 - docs: Documentation changes

@@ -1,9 +1,10 @@
-import type { Route } from './+types/[robots.txt]';
+import { site } from '~/content/site';
 
-export const loader = ({ request }: Route.LoaderArgs) => {
+export const loader = () => {
   const robotText = `User-agent: *
 Allow: /
-Sitemap: https://binayabajracharya.tech/sitemap.xml`;
+
+Sitemap: ${site.url}/sitemap.xml`;
 
   return new Response(robotText, {
     status: 200,
