@@ -1,9 +1,4 @@
 {
-  "functions": {
-    "app/**/*.tsx": {
-      "memory": 1024
-    }
-  },
   "build": {
     "env": {
       "VITE_SANITY_PROJECT_ID": "z68c4dv3",
