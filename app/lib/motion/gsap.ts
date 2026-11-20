@@ -1,16 +1,14 @@
-import { gsap } from 'gsap';
+import * as gsapModule from 'gsap';
 import type ScrollTriggerPlugin from 'gsap/ScrollTrigger';
 import * as ScrollTriggerModule from 'gsap/ScrollTrigger';
 import type SplitTextPlugin from 'gsap/SplitText';
 import * as SplitTextModule from 'gsap/SplitText';
 
 /**
- * Node resolves `gsap/*` to different builds depending on how the dependency is
- * installed: the ESM build exports the plugin by name and as `default`, while
- * the CJS UMD build keeps it on `module.exports`. A bare named import throws
- * "does not provide an export named ..." when the server bundle is externalized
- * and Node cannot detect that binding, which crashes the function before any
- * route renders. Resolve both module shapes instead.
+ * GSAP ships UMD/CJS builds whose named exports Node's loader does not always
+ * detect — Vercel's function runtime refused them and crashed the server bundle
+ * on startup. Read each plugin off whichever module shape is present instead of
+ * relying on a named import.
  */
 function resolvePlugin<T>(module: unknown, name: string): T {
   const mod = module as Record<string, unknown>;
@@ -19,6 +17,7 @@ function resolvePlugin<T>(module: unknown, name: string): T {
   return (mod[name] ?? fallback[name] ?? mod.default ?? mod) as T;
 }
 
+const gsap = resolvePlugin<typeof gsapModule.gsap>(gsapModule, 'gsap');
 const ScrollTrigger = resolvePlugin<typeof ScrollTriggerPlugin>(
   ScrollTriggerModule,
   'ScrollTrigger',
